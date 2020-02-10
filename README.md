@@ -1,8 +1,8 @@
 # Projeto_MeNY2020
 # Integrantes
-Nicholas Camargo
-Yuri Galdino
-Maria Eduarda Oliveira
+Nicholas Camargo,
+Yuri Galdino,
+Maria Eduarda Oliveira,
 
 # Assunto
 Criação de um aplicativo voltado para informar condições meteorológicas de forma mais acessivel para o usuário.
