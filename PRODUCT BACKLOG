@@ -1,12 +1,7 @@
-# Cenário
-Nossa pretenção é a entrega de uma ferramenta direta e simples que ajude o usuário em seu dia a dia com funcionalidades como:
+#### How do I write in Markdown?
+Markdown is extremely simple. In fact, it's mostly plain text, so writing a paragraph would be the same as with any text editor (there's a line between each paragraph).
 
-Dicas de planejamento diário e segurança. Ex: "Prepare o guarda-chuva Chuva moderada prevista."
+If you want to put in a line break
+you merely put two spaces after a line
+and it shows up like this.
 
-Cuidados pessoais. Ex: "Não se esqueça de se hidratar, umidade do ar está baixa" Ideias de funcionalidades:
-
-A pesquisa por condições de tempo específicas de um dia.
-
-O favoritamento de um dia para ser avisado caso as condições climaticas dele mudem.
-
-Uma forma de colaboração do usuário para validação em tempo real do clima.
