@@ -8,4 +8,7 @@
     <color name="secondaryDarkColor">#120036</color>
     <color name="primaryTextColor">#000000</color>
     <color name="secondaryTextColor">#ffffff</color>
+    <color name="facebook_bg">#3949AB</color>
+    <color name="google_bg">#DAD8D6D6</color>
+    <color name="colorRed">#F3FA0B0B</color>
 </resources>

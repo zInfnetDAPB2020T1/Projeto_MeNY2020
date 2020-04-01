@@ -1,20 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize">
+    tools:context=".loginCadastro"
+    android:background="#fff"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="520dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/primaryColor"
+            android:layout_height="470dp"
+            android:padding="20dp"
+            android:orientation="vertical"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/Login_Title"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="@drawable/text_input"
+                android:layout_marginTop="15dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_input"
+                    android:gravity="center"
+                    android:hint="@string/Usuario_input"
+                    android:inputType="textEmailAddress"
+                    android:textColorHint="#626262" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="@drawable/text_input"
+                android:layout_marginTop="15dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_input"
+                    android:gravity="center"
+                    android:hint="@string/Senha_Input"
+                    android:inputType="textPassword"
+                    android:textColorHint="#626262" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button"
+                android:hint="@string/entrar_btn"
+                android:textColorHint="#fff"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="@string/Cadastrar_Title"
+                android:textColor="#fff"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:background="@drawable/text_input"
+                android:layout_marginTop="15dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_input"
+                    android:gravity="center"
+                    android:hint="@string/Nome_Input"
+                    android:inputType="textPersonName"
+                    android:textColorHint="#626262" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button"
+                android:hint="@string/cadastrar_btn"
+                android:textColorHint="#fff"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="510dp"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="440dp"
+                android:background="@drawable/icone_sol_transition_2"
+                android:importantForAccessibility="no"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout><!--Top content-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/fb_btn"
+            android:drawableStart="@drawable/fb_logo"
+            android:drawableLeft="@drawable/fb_logo"
+            android:hint="@string/fb_btn_login"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="#fff"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/google_btn"
+            android:drawableStart="@drawable/google_logo"
+            android:drawableLeft="@drawable/google_logo"
+            android:hint="@string/google_btn_login"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColorHint="@color/primaryTextColor"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

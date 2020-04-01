@@ -8,4 +8,13 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="fb_btn_login">Login com Facebook</string>
+    <string name="google_btn_login">Login com Google</string>
+    <string name="cadastrar_btn">Cadastrar</string>
+    <string name="entrar_btn">Entrar</string>
+    <string name="Login_Title">Login</string>
+    <string name="Cadastrar_Title">Cadastre-se</string>
+    <string name="Usuario_input">Usuário</string>
+    <string name="Senha_Input">Senha</string>
+    <string name="Nome_Input">Nome</string>
 </resources>
