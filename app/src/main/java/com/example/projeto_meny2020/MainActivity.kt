@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({
             val intent = Intent (this, loginCadastro::class.java)
             startActivity(intent)
+            finish()
         }, 3000)
 
     }
