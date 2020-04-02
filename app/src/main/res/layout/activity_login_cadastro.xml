@@ -160,7 +160,7 @@
         android:id="@+id/facebookBtnLogin"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/fb_btn"
         android:drawableStart="@drawable/fb_logo"
         android:drawableLeft="@drawable/fb_logo"
@@ -170,16 +170,15 @@
         android:paddingEnd="20dp"
         android:textColorHint="#fff"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/googleBtnLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/googleBtnLogin"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/google_btn"
         android:drawableStart="@drawable/google_logo"
         android:drawableLeft="@drawable/google_logo"
@@ -192,18 +191,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/facebookBtnLogin"
+        app:layout_constraintVertical_bias="0.3" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="6dp"
+        android:layout_marginTop="418dp"
         android:background="@drawable/icone_sol_transition_2"
         android:importantForAccessibility="no"
-        app:layout_constraintBottom_toTopOf="@+id/facebookBtnLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ConstraintLayoutBgLogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
