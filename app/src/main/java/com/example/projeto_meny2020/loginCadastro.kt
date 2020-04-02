@@ -73,7 +73,9 @@ class loginCadastro : AppCompatActivity() {
         val valorEmail = emailTxtInputLogin.text.toString()
         val valorSenha = senhaTxtInputLogin.text.toString()
         val valorNome = nomeTxtInputLogin.text.toString()
+
         //checa se algum valor veio vazio
+
         if(valorEmail.isEmpty()|| valorSenha.isEmpty() || valorNome.isEmpty()){
             criaToast("Por favor, preencha os três campos.", Gravity.CENTER)
         }else{
@@ -86,16 +88,33 @@ class loginCadastro : AppCompatActivity() {
                 criaToast("Sua senha precisa ter mais do que 6 digitos.",Gravity.CENTER)
             }else if(!checaNome(valorNome)){
                 //Feito a mao com REGEX retorno de true caso errado
-                criaToast("Por favor, não ponha numeros em seu nome.", Gravity.CENTER)
+                criaToast("Por favor, não use numeros ou caracteres especiais.", Gravity.CENTER)
             }else{
-                Log.d("Funcionou", "tudo funcionando, criando a conta")
-                viewModelMock.usuario.add(UsuarioMock(valorNome,valorEmail,valorSenha))
+                //variavel de controle para email
+                var varControle = true
 
-                criaToast("Conta criada com sucesso!", Gravity.CENTER)
+                //forEach para conferir se o email ja existe
+                viewModelMock.usuario.forEach {
+                    if(it.email == valorEmail){
+                        varControle = false
+                        return@forEach
+                    }
+                }
 
-                emailTxtInputLogin.setText("")
-                senhaTxtInputLogin.setText("")
-                nomeTxtInputLogin.setText("")
+                //confere a variavel de controle
+                if(varControle){
+                    Log.d("Funcionou", "tudo funcionando, criando a conta")
+                    viewModelMock.usuario.add(UsuarioMock(valorNome,valorEmail,valorSenha))
+
+                    criaToast("Conta criada com sucesso!", Gravity.CENTER)
+
+                    emailTxtInputLogin.setText("")
+                    senhaTxtInputLogin.setText("")
+                    nomeTxtInputLogin.setText("")
+                }else{
+                    criaToast("Esse email ja está em uso.", Gravity.CENTER)
+                }
+
             }
         }
     }
@@ -117,8 +136,8 @@ class loginCadastro : AppCompatActivity() {
     }
 
     fun checaNome(nome: String): Boolean{
-        if(nome.contains(Regex("[0-9]"))) return false
-        return true
+        if(nome.contains(Regex("^([A-Za-z\\u00C0-\\u00D6\\u00D8-\\u00f6\\u00f8-\\u00ff\\s]*)\$"))) return true
+        return false
     }
 
     fun checaEmail(email: String): Boolean = Patterns.EMAIL_ADDRESS.matcher(email).matches()
