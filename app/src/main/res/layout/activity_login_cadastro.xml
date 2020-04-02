@@ -46,6 +46,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailTxtInputLogin"
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input"
@@ -63,6 +64,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/senhaTxtInputLogin"
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input"
@@ -73,11 +75,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/entrarBtnLogin"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/button"
                 android:hint="@string/entrar_btn"
+                android:onClick="btnCLickLogin"
                 android:textColorHint="#fff"
                 android:textSize="22sp" />
 
@@ -99,6 +103,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nomeTxtInputLogin"
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/text_input"
@@ -109,11 +114,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/cadastrarBtnLogin"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/button"
                 android:hint="@string/cadastrar_btn"
+                android:onClick="btnClickCadastro"
                 android:textColorHint="#fff"
                 android:textSize="22sp" />
 
@@ -146,6 +153,7 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/facebookBtnLogin"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -153,12 +161,14 @@
             android:drawableStart="@drawable/fb_logo"
             android:drawableLeft="@drawable/fb_logo"
             android:hint="@string/fb_btn_login"
+            android:onClick="btnDummyLogin"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:textColorHint="#fff"
             android:textSize="16sp" />
 
         <Button
+            android:id="@+id/googleBtnLogin"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -166,6 +176,7 @@
             android:drawableStart="@drawable/google_logo"
             android:drawableLeft="@drawable/google_logo"
             android:hint="@string/google_btn_login"
+            android:onClick="btnDummyLogin"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:textColorHint="@color/primaryTextColor"
