@@ -24,7 +24,7 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/titleTxtVwLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -45,7 +45,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/titleTxtVwLogin">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailTxtInputLogin"
@@ -99,7 +99,7 @@
 
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/titleTxtVw2Login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="54dp"
@@ -124,7 +124,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/titleTxtVw2Login">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nomeTxtInputLogin"
@@ -163,7 +163,6 @@
         android:layout_marginTop="24dp"
         android:background="@drawable/fb_btn"
         android:drawableStart="@drawable/fb_logo"
-        android:drawableLeft="@drawable/fb_logo"
         android:hint="@string/fb_btn_login"
         android:onClick="btnDummyLogin"
         android:paddingStart="20dp"
@@ -172,7 +171,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/logoImgVwLogin" />
 
     <Button
         android:id="@+id/googleBtnLogin"
@@ -181,7 +180,6 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/google_btn"
         android:drawableStart="@drawable/google_logo"
-        android:drawableLeft="@drawable/google_logo"
         android:hint="@string/google_btn_login"
         android:onClick="btnDummyLogin"
         android:paddingStart="20dp"
@@ -196,7 +194,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logoImgVwLogin"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="418dp"
