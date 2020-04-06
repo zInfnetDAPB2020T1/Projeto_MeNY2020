@@ -3,18 +3,11 @@ package com.example.projeto_meny2020
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.util.Patterns
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.isDigitsOnly
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.projeto_meny2020.classes.UsuarioMock
 import com.example.projeto_meny2020.viewModel.UsuarioMockViewModel
 import kotlinx.android.synthetic.main.activity_login_cadastro.*
@@ -80,13 +73,13 @@ class loginCadastro : AppCompatActivity() {
             criaToast("Por favor, preencha os três campos.", Gravity.CENTER)
         }else{
             //checa se as funcoes que conferem os inputs retornam false ou true
-            if (!checaEmail(valorEmail)){
+            if (!viewModelMock.checaUsuario.checaEmail(valorEmail)){
                 //usando REGEX retono de true caso errado
                 criaToast("Por favor, preencha o email corretamente.",Gravity.CENTER)
-            }else if(!checaSenha(valorSenha)){
+            }else if(!viewModelMock.checaUsuario.checaSenha(valorSenha)){
                 //Feito a mao retorno de true caso errado
                 criaToast("Sua senha precisa ter mais do que 6 digitos.",Gravity.CENTER)
-            }else if(!checaNome(valorNome)){
+            }else if(!viewModelMock.checaUsuario.checaNome(valorNome)){
                 //Feito a mao com REGEX retorno de true caso errado
                 criaToast("Por favor, não use numeros ou caracteres especiais.", Gravity.CENTER)
             }else{
@@ -128,19 +121,6 @@ class loginCadastro : AppCompatActivity() {
         toast.setGravity(local,0,0)
         toast.show()
     }
-
-    fun checaSenha(senha: String): Boolean{
-        val senhaMinima = 6
-        if(senha.length < senhaMinima) return false
-        return true
-    }
-
-    fun checaNome(nome: String): Boolean{
-        if(nome.contains(Regex("^([A-Za-z\\u00C0-\\u00D6\\u00D8-\\u00f6\\u00f8-\\u00ff\\s]*)\$"))) return true
-        return false
-    }
-
-    fun checaEmail(email: String): Boolean = Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
     //
     // FIM AREA DE CADASTRO
