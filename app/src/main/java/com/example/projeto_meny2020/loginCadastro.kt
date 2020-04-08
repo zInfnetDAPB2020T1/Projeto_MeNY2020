@@ -128,7 +128,7 @@ class loginCadastro : AppCompatActivity() {
 
     fun btnDummyLogin(v: View){
         //Dummy para mudar de tela pelo facebook/google
-        val intent = Intent(this, TesteTelaActivity::class.java)
+        val intent = Intent(this, PrincipalActivity::class.java)
         startActivity(intent)
     }
 }
