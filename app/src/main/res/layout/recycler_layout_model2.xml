@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,6 +9,7 @@
         android:layout_width="90dp"
         android:layout_height="130dp"
         android:layout_marginTop="13dp"
+        app:cardBackgroundColor="#E91E63"
         app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome">
@@ -29,7 +29,7 @@
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/typeMetVariable"
-                app:srcCompat="@drawable/simple_weather_icon_47" />
+                app:srcCompat="@drawable/weather" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/glvertical50"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="DIR.DO VENTO"
-                android:textColor="#333333"
+                android:textColor="#FFFFFF"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.6"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="NE"
-                android:textColor="#333333"
+                android:textColor="#FFFFFF"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -75,5 +75,4 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
