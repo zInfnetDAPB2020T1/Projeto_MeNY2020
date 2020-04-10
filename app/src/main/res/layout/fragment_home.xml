@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DAEDEDED"
+    android:elevation="50sp"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -14,11 +16,11 @@
         app:layout_constraintGuide_percent="0.15" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl25vertical"
+        android:id="@+id/gl32vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25" />
+        app:layout_constraintGuide_percent="0.325" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl50vertical"
@@ -31,13 +33,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl75vertical"
+        android:id="@+id/gl67vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.675" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl125horizontal"
@@ -119,13 +119,6 @@
         app:layout_constraintStart_toEndOf="@+id/iconImgVwHome"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.062215477" />
-
     <TextView
         android:id="@+id/currentTempMaxTxtVwHome"
         android:layout_width="wrap_content"
@@ -161,24 +154,17 @@
         app:layout_constraintStart_toEndOf="@+id/currentTempMaxTxtVwHome"
         app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.57" />
-
     <TextView
         android:id="@+id/currentDescriptionTxtVwHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="62dp"
         android:text="Céu limpo"
         android:textColor="#B41E1E1E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.805"
-        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -207,5 +193,122 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/currentSensacaoTxtVwHome"
         app:layout_constraintTop_toBottomOf="@+id/currentDescriptionTxtVwHome" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="287dp"
+        android:layout_height="191dp"
+        android:layout_marginTop="13dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome"
+        app:layout_constraintVertical_bias="0.035">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="50dp">
+
+            <TextView
+                android:id="@+id/currentSunsetCardVwHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="52dp"
+                android:text="19:32"
+                android:textColor="#B41E1E1E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/currentSunriseCardVwHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="100dp"
+                android:text="06:22"
+                android:textColor="#B41E1E1E"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/divisaoSunsetSunriseTxtCardVwHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="6dp"
+                android:text=" . . ."
+                android:textColor="#B41E1E1E"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toStartOf="@+id/iconSunsetCardVwHome"
+                app:layout_constraintHorizontal_bias="0.481"
+                app:layout_constraintStart_toEndOf="@+id/iconSunriseCardVwHome"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/titleSunriseTxtCardVwHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="48dp"
+                android:layout_marginTop="21dp"
+                android:text="Sunrise"
+                android:textColor="#B41E1E1E"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/titleSunsetTxtCardVwHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="51dp"
+                android:text="Sunset"
+                android:textColor="#B41E1E1E"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iconSunriseCardVwHome"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/sunrise_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleSunriseTxtCardVwHome" />
+
+            <ImageView
+                android:id="@+id/iconSunsetCardVwHome"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="42dp"
+                android:src="@drawable/sunset_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleSunsetTxtCardVwHome" />
+
+            <TextView
+                android:id="@+id/tipdayCardVwHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="21dp"
+                android:gravity="center|center_horizontal|center_vertical"
+                android:text="Dica do dia: Evite se expor ao sol e beba bastante líquido!"
+                android:textColor="#313435"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
