@@ -9,23 +9,35 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.projeto_meny2020.R
+import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var dadosTempoViewModel: DadosTempoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
+
+        activity?.let {
+            dadosTempoViewModel = ViewModelProviders.of(it).get(DadosTempoViewModel::class.java)
+        }
+
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-//        val textView: TextView = root.findViewById(R.id.text_home)
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        currentDescriptionTxtVwHome.text = dadosTempoViewModel.dados.dados.getDescricao()
+        currentTempTxtVwHome.text = dadosTempoViewModel.dados.dados.getTemperatura()
+        currentTempMinTxtVwHome.text = dadosTempoViewModel.dados.dados.getTemperaturaMin()
+        currentTempMaxTxtVwHome.text = dadosTempoViewModel.dados.dados.getTemperaturaMax()
+        currentSensacaoDataTxtVwHome.text = dadosTempoViewModel.dados.dados.getSensacaoTerminca()
+        currentSunriseCardVwHome.text = dadosTempoViewModel.dados.dados.getNascerSol()
+        currentSunsetCardVwHome.text = dadosTempoViewModel.dados.dados.getPorSol()
     }
 }

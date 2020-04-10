@@ -48,48 +48,57 @@ class DataTempo(
     val app_temp: Int
 ){}
 
-class DadosTempoJSON(private val data: DataTempo) {
-    fun getTemperatura(): String = data.temp.toString()
+class DadosTempoJSON(private val data: List<DataTempo>) {
+    fun getTemperatura(): String = data[0].temp.toString()
 
-    fun getDescricao(): String = data.weather.description
+    fun getDescricao(): String = data[0].weather.description
 
-    fun getNomeCidade(): String = data.city_name
+    fun getNomeCidade(): String = data[0].city_name
 
-    fun getVisibilidade(): String = data.vis.toString()
+    fun getVisibilidade(): String = data[0].vis.toString()
 
-    fun getUmidadeRelativa(): String = data.rh.toString()
+    fun getUmidadeRelativa(): String = data[0].rh.toString()
 
-    fun getVentoDirMin(): String = data.wind_cdir
+    fun getVentoDirMin(): String = data[0].wind_cdir
 
-    fun getVentoDirMax():String = data.wind_cdir_full
+    fun getVentoDirMax():String = data[0].wind_cdir_full
 
-    fun getSensacaoTerminca(): String = data.app_temp.toString()
+    fun getSensacaoTerminca(): String = data[0].app_temp.toString() + "°C"
 
-    fun getNuvensPrc(): String = data.clouds.toString()
+    fun getNuvensPrc(): String = data[0].clouds.toString()
 
     fun getNascerSol(): String{
-        val hora = data.sunrise
+        val hora = data[0].sunrise
         val newHora = hora.split(":")
         val horaNasc: Int = newHora[0].toInt() - 3
-        val retornar: String = horaNasc.toString() + ":" + newHora[1]
+        val retornar: String
+        if(horaNasc <= 9){
+            retornar = "0" + horaNasc.toString() + ":" + newHora[1]
+        }else{
+            retornar= horaNasc.toString() + ":" + newHora[1]
+        }
         return retornar
     }
 
     fun getPorSol(): String{
-        val hora = data.sunset
+        val hora = data[0].sunset
         val newHora = hora.split(":")
         val horaNasc: Int = newHora[0].toInt() - 3
         val retornar: String = horaNasc.toString() + ":" + newHora[1]
         return retornar
     }
 
-    fun getPressao(): String = data.pres.toString()
+    fun getPressao(): String = data[0].pres.toString()
 
-    fun getUV(): String = data.uv.toString()
+    fun getUV(): String = data[0].uv.toString()
 
-    fun getRadiacaoSolar(): String = data.solar_rad.toString()
+    fun getRadiacaoSolar(): String = data[0].solar_rad.toString()
 
-    fun getManhaNoite(): String = data.pod
+    fun getManhaNoite(): String = data[0].pod
+
+    fun getTemperaturaMin(): String = (getTemperatura().toFloat() - 2).toString()
+
+    fun getTemperaturaMax(): String = (getTemperatura().toFloat() + 3).toString()
 }
 
 //classe mockada

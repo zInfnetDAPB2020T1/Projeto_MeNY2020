@@ -134,7 +134,7 @@
         android:id="@+id/currentTempMinTxtVwHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="2dp"
         android:text="24º"
         android:textColor="#2196F3"
         android:textStyle="bold"
@@ -149,14 +149,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:text="/"
-        app:layout_constraintEnd_toStartOf="@+id/gl50vertical"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/currentTempMaxTxtVwHome"
         app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
 
     <TextView
         android:id="@+id/currentDescriptionTxtVwHome"
-        android:layout_width="wrap_content"
+        android:layout_width="93dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="23dp"
         android:layout_marginTop="68dp"
@@ -164,7 +162,8 @@
         android:text="Céu limpo"
         android:textColor="#B41E1E1E"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/currentTempMinTxtVwHome"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -185,14 +184,14 @@
         android:id="@+id/currentSensacaoDataTxtVwHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="10dp"
         android:text="32ºC"
         android:textColor="#B41E1E1E"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/currentSensacaoTxtVwHome"
-        app:layout_constraintTop_toBottomOf="@+id/currentDescriptionTxtVwHome" />
+        app:layout_constraintTop_toBottomOf="@+id/currentTempMaxTxtVwHome" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="287dp"
@@ -204,7 +203,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome"
-        app:layout_constraintVertical_bias="0.035">
+        app:layout_constraintVertical_bias="0.13">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

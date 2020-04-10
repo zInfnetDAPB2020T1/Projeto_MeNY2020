@@ -28,27 +28,19 @@ class loginCadastro : AppCompatActivity() {
     //
 
     fun btnCLickLogin(v: View){
-        //variavel confere de controle se achou conta ou nao
-        var confere = false
-
         //Confere o usuario no firebase ou na classe mockada(por enquanto)
         val valorEmail = emailTxtInputLogin.text.toString()
         val valorSenha = senhaTxtInputLogin.text.toString()
 
 
-        viewModelMock.usuario.forEach {
-            if(it.email == valorEmail && it.senha == valorSenha){
-                val intent = Intent(applicationContext, TesteTelaActivity::class.java)
-                intent.putExtra("usuario", it.nome)
-                startActivity(intent)
-                confere = true
-                return@forEach
-            }
+       val resp = viewModelMock.ConfereUsuario(valorEmail, valorSenha)
+        if(!resp){
+            criaToast("Senha ou Email errados, por favor, tente novamente.", Gravity.CENTER)
+        } else{
+            val intent = Intent(this, PrincipalActivity::class.java)
+            startActivity(intent)
         }
 
-        if(!confere){
-            criaToast("Senha ou Email errados, por favor, tente novamente.", Gravity.CENTER)
-        }
 
     }
 
@@ -87,17 +79,12 @@ class loginCadastro : AppCompatActivity() {
                 var varControle = true
 
                 //forEach para conferir se o email ja existe
-                viewModelMock.usuario.forEach {
-                    if(it.email == valorEmail){
-                        varControle = false
-                        return@forEach
-                    }
-                }
+                if(!viewModelMock.ChecarCriarConta(valorEmail)) varControle = false
 
                 //confere a variavel de controle
                 if(varControle){
                     Log.d("Funcionou", "tudo funcionando, criando a conta")
-                    viewModelMock.usuario.add(UsuarioMock(valorNome,valorEmail,valorSenha))
+                    viewModelMock.AdicionarConta(valorEmail,valorNome,valorSenha)
 
                     criaToast("Conta criada com sucesso!", Gravity.CENTER)
 

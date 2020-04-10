@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2B2B2B"
+    android:background="#FFF"
     tools:context=".loginCadastro">
 
 
@@ -12,7 +12,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ConstraintLayoutBgLogin"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="458dp"
         android:background="@color/primaryColor"
         app:layout_constraintBottom_toBottomOf="parent"
