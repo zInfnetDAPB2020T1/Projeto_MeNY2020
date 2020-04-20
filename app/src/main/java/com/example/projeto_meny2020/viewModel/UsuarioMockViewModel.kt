@@ -5,7 +5,7 @@ import com.example.projeto_meny2020.classes.UsuarioMock
 
 class UsuarioMockViewModel: ViewModel() {
     var usuario: MutableList<UsuarioMock> = mutableListOf<UsuarioMock>(UsuarioMock("teste", "t@teste.com", "123456"))
-    val checaUsuario: UsuarioMock = UsuarioMock("teste", "teste", "teste")
+    val checaUsuario: UsuarioMock = UsuarioMock("teste", "teste@teste.com", "senhateste")
 
     fun AdicionarConta(_email: String, _nome : String, _senha : String){
         this.usuario.add(UsuarioMock(_email,_nome,_senha))
