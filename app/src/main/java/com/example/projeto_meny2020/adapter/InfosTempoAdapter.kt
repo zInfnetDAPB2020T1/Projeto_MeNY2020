@@ -37,7 +37,7 @@ class InfosTempoAdapter(val infosLista : List<recycleInfosModel>): RecyclerView.
     override fun onBindViewHolder(holder: InfosViewHolder, position: Int) {
         val infoAtual = infosLista[position]
         holder.campoNome.text = infoAtual.nome
-        holder.campoIcone.id = infoAtual.icone
+        holder.campoIcone.setImageResource(infoAtual.icone)
         holder.campoInfo.text = infoAtual.info
     }
 }

@@ -54,11 +54,11 @@ class HomeFragment : Fragment() {
 
     private fun CriaLista(): List<recycleInfosModel>{
         val retornar = listOf(
-            recycleInfosModel("UV", R.drawable.simple_weather_icon_47, dadosTempoViewModel.dados.dados.getUV()),
-            recycleInfosModel("Umidade Rel.", R.drawable.simple_weather_icon_47, dadosTempoViewModel.dados.dados.getUmidadeRelativa()),
+            recycleInfosModel("UV", R.drawable.simple_weather_icon_60, dadosTempoViewModel.dados.dados.getUV()),
+            recycleInfosModel("Umidade Rel.", R.drawable.humidity, dadosTempoViewModel.dados.dados.getUmidadeRelativa()),
             recycleInfosModel("Vento Dir.", R.drawable.simple_weather_icon_47, dadosTempoViewModel.dados.dados.getVentoDirMin()),
-            recycleInfosModel("Vento Vel.", R.drawable.simple_weather_icon_47, dadosTempoViewModel.dados.dados.getVentoVel()),
-            recycleInfosModel("Pressao", R.drawable.simple_weather_icon_47, dadosTempoViewModel.dados.dados.getPressao())
+            recycleInfosModel("Vento Vel.", R.drawable.windicon, dadosTempoViewModel.dados.dados.getVentoVel()),
+            recycleInfosModel("Pressao", R.drawable.pressure, dadosTempoViewModel.dados.dados.getPressao())
             )
 
         return retornar

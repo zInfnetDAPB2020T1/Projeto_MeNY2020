@@ -9,7 +9,7 @@
         android:layout_width="90dp"
         android:layout_height="130dp"
         android:layout_marginTop="13dp"
-        app:cardBackgroundColor="#E91E63"
+        app:cardBackgroundColor="#330d60"
         app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome">

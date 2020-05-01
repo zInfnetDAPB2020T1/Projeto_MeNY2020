@@ -37,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:verticalScrollbarPosition="right"
         app:layout_constraintGuide_percent="0.675" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -198,6 +199,7 @@
         android:layout_width="287dp"
         android:layout_height="191dp"
         android:layout_marginTop="13dp"
+        android:scrollbarStyle="outsideInset"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -313,9 +315,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/infosRcyVwHome"
-        android:layout_width="287dp"
+        android:layout_width="290dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="35dp"
         android:scrollbars="horizontal"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
