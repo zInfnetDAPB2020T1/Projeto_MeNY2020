@@ -49,56 +49,68 @@ class DataTempo(
 ){}
 
 class DadosTempoJSON(private val data: List<DataTempo>) {
-    fun getTemperatura(): String = data[0].temp.toString()
+    fun getTemperatura(): String = data[0].temp.toString() ?: "0"
 
-    fun getDescricao(): String = data[0].weather.description
+    fun getDescricao(): String = data[0].weather.description ?: "0"
 
-    fun getNomeCidade(): String = data[0].city_name
+    fun getNomeCidade(): String = data[0].city_name ?: "0"
 
-    fun getVisibilidade(): String = data[0].vis.toString()
+    fun getVisibilidade(): String = data[0].vis.toString() ?: "0"
 
-    fun getUmidadeRelativa(): String = data[0].rh.toString()
+    fun getUmidadeRelativa(): String = data[0].rh.toString() ?: "0"
 
-    fun getVentoDirMin(): String = data[0].wind_cdir
+    fun getVentoDirMin(): String = data[0].wind_cdir ?: "0"
 
-    fun getVentoDirMax():String = data[0].wind_cdir_full
+    fun getVentoDirMax():String = data[0].wind_cdir_full ?: "0"
 
-    fun getSensacaoTerminca(): String = data[0].app_temp.toString() + "°C"
+    fun getVentoVel():String = data[0].wind_spd.toString() ?: "0"
 
-    fun getNuvensPrc(): String = data[0].clouds.toString()
+    fun getSensacaoTerminca(): String = data[0].app_temp.toString() + "°C" ?: "0"
+
+    fun getNuvensPrc(): String = data[0].clouds.toString() ?: "0"
 
     fun getNascerSol(): String{
-        val hora = data[0].sunrise
-        val newHora = hora.split(":")
-        val horaNasc: Int = newHora[0].toInt() - 3
-        val retornar: String
-        if(horaNasc <= 9){
-            retornar = "0" + horaNasc.toString() + ":" + newHora[1]
+
+        if(data[0] != null){
+            val hora = data[0].sunrise
+            val newHora = hora.split(":")
+            val horaNasc: Int = newHora[0].toInt() - 3
+            val retornar: String
+            if(horaNasc <= 9){
+                retornar = "0" + horaNasc.toString() + ":" + newHora[1]
+            }else{
+                retornar= horaNasc.toString() + ":" + newHora[1]
+            }
+            return retornar
+
         }else{
-            retornar= horaNasc.toString() + ":" + newHora[1]
+            return "00:00"
         }
-        return retornar
     }
 
     fun getPorSol(): String{
-        val hora = data[0].sunset
-        val newHora = hora.split(":")
-        val horaNasc: Int = newHora[0].toInt() - 3
-        val retornar: String = horaNasc.toString() + ":" + newHora[1]
-        return retornar
+        if(data[0] != null){
+            val hora = data[0].sunset
+            val newHora = hora.split(":")
+            val horaNasc: Int = newHora[0].toInt() - 3
+            val retornar: String = horaNasc.toString() + ":" + newHora[1]
+            return retornar
+        }else{
+            return "00:00"
+        }
     }
 
-    fun getPressao(): String = data[0].pres.toString()
+    fun getPressao(): String = data[0].pres.toString() ?: "0"
 
-    fun getUV(): String = data[0].uv.toString()
+    fun getUV(): String = data[0].uv.toString() ?: "0"
 
-    fun getRadiacaoSolar(): String = data[0].solar_rad.toString()
+    fun getRadiacaoSolar(): String = data[0].solar_rad.toString() ?: "0"
 
-    fun getManhaNoite(): String = data[0].pod
+    fun getManhaNoite(): String = data[0].pod ?: "0"
 
-    fun getTemperaturaMin(): String = (getTemperatura().toFloat() - 2).toString()
+    fun getTemperaturaMin(): String = (getTemperatura().toFloat() - 2).toString() ?: "0"
 
-    fun getTemperaturaMax(): String = (getTemperatura().toFloat() + 3).toString()
+    fun getTemperaturaMax(): String = (getTemperatura().toFloat() + 3).toString() ?: "0"
 }
 
 //classe mockada
