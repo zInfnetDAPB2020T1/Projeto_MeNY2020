@@ -10,5 +10,6 @@
     <color name="secondaryTextColor">#ffffff</color>
     <color name="facebook_bg">#3949AB</color>
     <color name="google_bg">#DAD8D6D6</color>
-    <color name="colorRed">#F3FA0B0B</color>
+    <color name="colorMax">#F44336</color>
+    <color name="colorMin">#2196F3</color>
 </resources>
