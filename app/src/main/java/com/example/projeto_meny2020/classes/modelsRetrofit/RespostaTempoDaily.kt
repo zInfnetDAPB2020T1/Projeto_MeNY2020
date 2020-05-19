@@ -52,7 +52,21 @@ class Forecast(
 
     fun getMes():String{
         val splitado = datetime.split("-")
-        return splitado[1]
+        return when(splitado[1].toString()){
+            "01" -> "JAN"
+            "02" -> "FEV"
+            "03" -> "MAR"
+            "04" -> "ABR"
+            "05" -> "MAI"
+            "06" -> "JUN"
+            "07" -> "JUL"
+            "08" -> "AGO"
+            "09" -> "SET"
+            "10" -> "OUT"
+            "11" -> "NOV"
+            "12" -> "DEZ"
+            else -> "ERRO"
+        }
     }
 
     fun getMin(): String{

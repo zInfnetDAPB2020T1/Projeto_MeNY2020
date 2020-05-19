@@ -147,7 +147,7 @@ class DadosTempoViewModel(): ViewModel() {
             }
         }
 
-        Thread.sleep(2000)
+        Thread.sleep(1000)
 
         return true
     }
@@ -157,10 +157,14 @@ class DadosTempoViewModel(): ViewModel() {
             val timeAtual = SimpleDateFormat("dd/HH")
             val timeAtualFormatado = timeAtual.format(Date())
 
-            val texto: String
-            texto = file.readText()
+            val texto: String?
+            if(file.exists()){
+                texto = file.readText()
+            }else{
+                texto = null
+            }
 
-            if(!texto.isBlank()){
+            if(!texto.isNullOrBlank()){
                 if(texto.split("/")[0].toInt() != timeAtualFormatado.split("/")[0].toInt()){
                     Log.d("TESTE CONFERIR CURRENT", texto)
                     try {
@@ -197,11 +201,15 @@ class DadosTempoViewModel(): ViewModel() {
             val timeAtual = SimpleDateFormat("dd")
             val timeAtualFormatado = timeAtual.format(Date())
 
-            val texto: String
+            val texto: String?
 
-            texto = file.readText()
+            if(file.exists()){
+                texto = file.readText()
+            }else{
+                texto = null
+            }
 
-            if(!texto.isBlank()){
+            if(!texto.isNullOrBlank()){
                 Log.d("TESTE CONFERIR DAILY", texto)
                 try {
                     file.writeText(timeAtualFormatado)
