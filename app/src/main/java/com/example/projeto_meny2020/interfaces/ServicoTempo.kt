@@ -10,7 +10,8 @@ interface ServicoTempo {
     @GET("current?")
     fun getCurrentWeatherData(@Query("lat") lat: String,
                               @Query("lon") lon: String,
-                              @Query("key") key: String): Call<RespostaTempoCurrent>
+                              @Query("key") key: String,
+                              @Query("lang") lang: String = "pt"): Call<RespostaTempoCurrent>
 
     @GET("forecast/daily?")
     fun getDailyWeatherData(@Query("lat") lat: String,

@@ -22,7 +22,7 @@ class Forecast(
     val dewpt :Float = 0f,
     val max_temp : Float = 0f,
     val min_temp : Float = 0f,
-    val  app_max_temp: Float = 0f,
+    val app_max_temp: Float = 0f,
     val app_min_temp : Float = 0f ,
     val rh : Int = 0,
     val clouds : Int = 0,
@@ -43,7 +43,35 @@ class Forecast(
     val wind_dir : Float = 0f ,
     val wind_cdir :String = "NULL" ,
     val wind_cdir_full : String = "NULL"
-) {}
+) {
+    fun getDia():String{
+        val splitado = datetime.split("-")
+        val dia = splitado[2].split(":")[0]
+        return dia
+    }
+
+    fun getMes():String{
+        val splitado = datetime.split("-")
+        return splitado[1]
+    }
+
+    fun getMin(): String{
+        return min_temp.toString()
+    }
+
+    fun getMax():String{
+        return max_temp.toString()
+    }
+
+    fun getStatus():String{
+        //Calculo de nuvens
+        return "Nublado"
+    }
+
+    fun getPct():String{
+        return pop.toString()
+    }
+}
 
 
 class weatherInfo(
