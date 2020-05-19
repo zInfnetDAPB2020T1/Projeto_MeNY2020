@@ -2,6 +2,7 @@ package com.example.projeto_meny2020
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -15,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
+import kotlinx.android.synthetic.main.app_bar_principal.*
 
 class PrincipalActivity : AppCompatActivity() {
 
@@ -22,6 +24,9 @@ class PrincipalActivity : AppCompatActivity() {
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        //teste toolbar "alternar cidade"
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
@@ -58,4 +63,5 @@ class PrincipalActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }

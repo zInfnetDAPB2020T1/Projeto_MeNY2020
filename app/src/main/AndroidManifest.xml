@@ -9,18 +9,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".PrincipalActivity"
             android:label="@string/title_activity_principal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".TesteTelaActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".TesteTelaActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+
         <activity
             android:name=".loginCadastro"
-            android:label="@string/title_activity_login_cadastro" />
-        <activity android:name=".MainActivity">
+            android:label="@string/title_activity_login_cadastro"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -8,7 +8,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="fb_btn_login">Login com Facebook</string>
     <string name="google_btn_login">Login com Google</string>
-    <string name="cadastrar_btn">Cadastrar</string>
+    <string name="cadastrar_btn" translatable="false">Cadastrar</string>
     <string name="entrar_btn">Entrar</string>
     <string name="Login_Title">Login</string>
     <string name="Cadastrar_Title">Cadastre-se</string>
@@ -23,9 +23,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Calendário</string>
+    <string name="menu_home">Tempo agora</string>
+    <string name="menu_gallery">Previsão para 16 dias</string>
     <string name="menu_slideshow">Configurações</string>
 
     <string name="home_second">Home Second</string>
+    <string name="mudar_cidade">Alterar cidade</string>
 </resources>
