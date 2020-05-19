@@ -29,4 +29,6 @@
 
     <string name="home_second">Home Second</string>
     <string name="mudar_cidade">Alterar cidade</string>
+
+    <string name="carregando_dados">Estamos carregando seus dados, por favor, aguarde!</string>
 </resources>

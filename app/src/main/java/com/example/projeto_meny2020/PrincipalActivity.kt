@@ -34,6 +34,7 @@ class PrincipalActivity : AppCompatActivity() {
 
         dadosTempoViewModel = ViewModelProviders.of(this)[DadosTempoViewModel::class.java]
 
+        dadosTempoViewModel.fileDir = filesDir.toString()
 //        val fab: FloatingActionButton = findViewById(R.id.fab)
 //        fab.setOnClickListener { view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

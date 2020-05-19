@@ -1,10 +1,13 @@
 package com.example.projeto_meny2020.ui.home
 
 import android.content.Context
+import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +16,8 @@ import com.example.projeto_meny2020.adapter.InfosTempoAdapter
 import com.example.projeto_meny2020.classes.recycleInfosModel
 import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.io.File
+import java.lang.Exception
 
 val SPREFNAME = "rcyVwPref"
 
@@ -34,32 +39,68 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onStart() {
+        super.onStart()
+        DadosEViews().execute()
+    }
 
-        val infosLista = CriaLista()
+    inner class DadosEViews(): AsyncTask<Unit, Unit, Boolean>(){
+        override fun onPreExecute() {
+            super.onPreExecute()
 
-        var infosTempoAdapter = InfosTempoAdapter(infosLista)
-        infosRcyVwHome.adapter = infosTempoAdapter
-        infosRcyVwHome.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+            Toast.makeText(this@HomeFragment.context, R.string.carregando_dados, Toast.LENGTH_SHORT)
+        }
 
-        currentDescriptionTxtVwHome.text = dadosTempoViewModel.dados.dados.getDescricao()
-        currentTempTxtVwHome.text = dadosTempoViewModel.dados.dados.getTemperatura()
-        currentTempMinTxtVwHome.text = dadosTempoViewModel.dados.dados.getTemperaturaMin()
-        currentTempMaxTxtVwHome.text = dadosTempoViewModel.dados.dados.getTemperaturaMax()
-        currentSensacaoDataTxtVwHome.text = dadosTempoViewModel.dados.dados.getSensacaoTerminca()
-        currentSunriseCardVwHome.text = dadosTempoViewModel.dados.dados.getNascerSol()
-        currentSunsetCardVwHome.text = dadosTempoViewModel.dados.dados.getPorSol()
+        override fun doInBackground(vararg params: Unit?): Boolean {
+            return getDadosViewModel()
+        }
+
+        override fun onPostExecute(result: Boolean?) {
+            super.onPostExecute(result)
+            if(result!!){
+                val infosLista = CriaLista()
+
+                val infosTempoAdapter = InfosTempoAdapter(infosLista)
+                infosRcyVwHome.adapter = infosTempoAdapter
+                infosRcyVwHome.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+
+                currentDescriptionTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getDescricao()
+                currentTempTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperatura()
+                currentTempMinTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMin()
+                currentTempMaxTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMax()
+                currentSensacaoDataTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getSensacaoTerminca()
+                currentSunriseCardVwHome.text = dadosTempoViewModel.DadosCurrent().getNascerSol()
+                currentSunsetCardVwHome.text = dadosTempoViewModel.DadosCurrent().getPorSol()
+            }
+        }
     }
 
     private fun CriaLista(): List<recycleInfosModel>{
         val retornar = listOf(
-            recycleInfosModel("UV", R.drawable.simple_weather_icon_60, dadosTempoViewModel.dados.dados.getUV()),
-            recycleInfosModel("Umidade Rel.", R.drawable.humidity, dadosTempoViewModel.dados.dados.getUmidadeRelativa()),
-            recycleInfosModel("Vento Dir.", R.drawable.simple_weather_icon_47, dadosTempoViewModel.dados.dados.getVentoDirMin()),
-            recycleInfosModel("Vento Vel.", R.drawable.windicon, dadosTempoViewModel.dados.dados.getVentoVel()),
-            recycleInfosModel("Pressao", R.drawable.pressure, dadosTempoViewModel.dados.dados.getPressao())
+            recycleInfosModel("UV", R.drawable.simple_weather_icon_60, dadosTempoViewModel.DadosCurrent().getUV()),
+            recycleInfosModel("Umidade Rel.", R.drawable.humidity, dadosTempoViewModel.DadosCurrent().getUmidadeRelativa()),
+            recycleInfosModel("Vento Dir.", R.drawable.simple_weather_icon_47, dadosTempoViewModel.DadosCurrent().getVentoDirMin()),
+            recycleInfosModel("Vento Vel.", R.drawable.windicon, dadosTempoViewModel.DadosCurrent().getVentoVel()),
+            recycleInfosModel("Pressao", R.drawable.pressure, dadosTempoViewModel.DadosCurrent().getPressao())
             )
+
+        return retornar
+    }
+
+    fun getDadosViewModel():Boolean{
+        var retornar: Boolean
+        val fileCEscrever = File(dadosTempoViewModel.fileDir, "getRequestTimeCurrent.txt")
+        val fileDEscrever = File(dadosTempoViewModel.fileDir,"getRequestTimeDaily.txt")
+
+        val fileCSalvar = File(dadosTempoViewModel.fileDir, "dadosSalvosCurrent.txt")
+        val fileDSalvar = File(dadosTempoViewModel.fileDir, "dadosSalvosDaily.txt")
+
+        try {
+            retornar = dadosTempoViewModel.RetrofitGetDataWeatherComplete(fileCEscrever, fileDEscrever, fileCSalvar, fileDSalvar)
+        }catch (e: Exception){
+            Log.e("ERROR VIEWMODEL", e.message!!)
+            retornar = false
+        }
 
         return retornar
     }
