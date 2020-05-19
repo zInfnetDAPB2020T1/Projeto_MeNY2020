@@ -3,6 +3,7 @@ package com.example.projeto_meny2020
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -24,8 +25,6 @@ class PrincipalActivity : AppCompatActivity() {
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        //teste toolbar "alternar cidade"
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
@@ -53,10 +52,18 @@ class PrincipalActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.principal, menu)
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.principal,menu);
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId;
+        if (id == R.id.change_city){
+            Toast.makeText(this.applicationContext, "Ação de escolha de cidades em implementação", Toast.LENGTH_LONG).show()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {
