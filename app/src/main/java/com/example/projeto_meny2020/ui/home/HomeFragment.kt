@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import java.io.File
 import java.lang.Exception
 
-val SPREFNAME = "rcyVwPref"
+//val SPREFNAME = "rcyVwPref"
 
 class HomeFragment : Fragment() {
 

@@ -29,11 +29,13 @@ class DadosTempoViewModel(): ViewModel() {
     var dadosDaily: RespostaTempoDaily? = null
     var lat = "-22.875113"
         set(value) {
+            jaDeuGet = false
             trocar = true
             field = value
         }
     var lon = "-43.277548"
         set(value) {
+            jaDeuGet = false
             trocar = true
             field = value
         }
@@ -63,14 +65,14 @@ class DadosTempoViewModel(): ViewModel() {
         }
     }
 
-    fun PegarDadosCurrent(current: File, rc: RecyclerView, ctx: Context, callback: () -> Unit){
+    fun PegarDadosCurrent(current: File, rc: RecyclerView?, ctx: Context?, callback: () -> Unit){
         if(current.exists()){
             val stringPegar = current.readText()
             dadosCurrent = Gson().fromJson(stringPegar, RespostaTempoCurrent::class.java)
-            atualizarRecycle(rc, ctx, callback)
+            if(rc != null || ctx != null) atualizarRecycle(rc!!, ctx!!, callback)
         }else{
             dadosCurrent = RespostaTempoCurrent()
-            atualizarRecycle(rc, ctx, callback)
+            if(rc != null || ctx != null) atualizarRecycle(rc!!, ctx!!, callback)
         }
     }
 
@@ -88,11 +90,11 @@ class DadosTempoViewModel(): ViewModel() {
         fileD: File,
         fileSC: File,
         fileSD: File,
-        rc: RecyclerView,
-        ctx: Context,
+        rc: RecyclerView?,
+        ctx: Context?,
         callback: () -> Unit
     ){
-        if(!jaDeuGet){
+        if(!jaDeuGet || trocar){
             jaDeuGet = true
             Log.d("CONFERIR", "Entrou na RetrofitGetDataWeatherComplete()")
             val retrofit = Retrofit.Builder()
@@ -119,7 +121,9 @@ class DadosTempoViewModel(): ViewModel() {
                                 dadosCurrent = response.body()
                                 Log.d("DADNDO GET", "get foi dado no current")
                                 SalvarDadosCurrent(fileSC)
-                                atualizarRecycle(rc, ctx, callback)
+                                if(rc != null || ctx != null) {
+                                    atualizarRecycle(rc!!, ctx!!, callback)
+                                }
                             }else{
                                 Log.d("DEU ALGUM ERRO", call.toString())
                             }
@@ -167,7 +171,11 @@ class DadosTempoViewModel(): ViewModel() {
                 }
             }
         }else{
-            PegarDadosCurrent(fileSC, rc, ctx, callback)
+            if(rc != null || ctx != null) {
+                PegarDadosCurrent(fileSC, rc!!, ctx!!, callback)
+            }else{
+                PegarDadosCurrent(fileSC, null, null, callback)
+            }
             PegarDadosDaily(fileSD)
         }
     }
