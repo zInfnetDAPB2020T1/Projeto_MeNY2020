@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
         override fun onPreExecute() {
             super.onPreExecute()
 
-            Toast.makeText(this@HomeFragment.context, R.string.carregando_dados, Toast.LENGTH_SHORT)
+            Toast.makeText(this@HomeFragment.context, R.string.carregando_dados, Toast.LENGTH_SHORT).show()
         }
 
         override fun doInBackground(vararg params: Unit?): Boolean {

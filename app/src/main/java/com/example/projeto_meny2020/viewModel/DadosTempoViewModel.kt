@@ -186,7 +186,7 @@ class DadosTempoViewModel(): ViewModel() {
                     }
                 }
             }else{
-                PrintWriter(file).use { out -> out.println(timeAtualFormatado) }
+                PrintWriter(file).use { out -> out.print(timeAtualFormatado) }
                 return true
             }
         }catch (e: Exception){
