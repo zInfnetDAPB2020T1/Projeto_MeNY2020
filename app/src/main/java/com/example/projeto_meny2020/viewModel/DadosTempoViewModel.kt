@@ -1,9 +1,15 @@
 package com.example.projeto_meny2020.viewModel
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.projeto_meny2020.R
+import com.example.projeto_meny2020.adapter.InfosTempoAdapter
 import com.example.projeto_meny2020.classes.modelsRetrofit.RespostaTempoCurrent
 import com.example.projeto_meny2020.classes.modelsRetrofit.RespostaTempoDaily
+import com.example.projeto_meny2020.classes.recycleInfosModel
 import com.example.projeto_meny2020.interfaces.ServicoTempo
 import com.google.gson.Gson
 import retrofit2.Call
@@ -33,6 +39,11 @@ class DadosTempoViewModel(): ViewModel() {
         }
     private var trocar = false
     var fileDir = ""
+    private var jaDeuGet = false
+
+    fun getJaDeuGet(): Boolean{
+        return jaDeuGet
+    }
 
     fun SalvarDadosCurrent(dir: File){
         val stringSalvar = Gson().toJson(dadosCurrent)
@@ -52,12 +63,14 @@ class DadosTempoViewModel(): ViewModel() {
         }
     }
 
-    fun PegarDadosCurrent(current: File){
+    fun PegarDadosCurrent(current: File, rc: RecyclerView, ctx: Context, callback: () -> Unit){
         if(current.exists()){
             val stringPegar = current.readText()
             dadosCurrent = Gson().fromJson(stringPegar, RespostaTempoCurrent::class.java)
+            atualizarRecycle(rc, ctx, callback)
         }else{
             dadosCurrent = RespostaTempoCurrent()
+            atualizarRecycle(rc, ctx, callback)
         }
     }
 
@@ -74,82 +87,89 @@ class DadosTempoViewModel(): ViewModel() {
         fileC: File,
         fileD: File,
         fileSC: File,
-        fileSD: File
-    ): Boolean{
-        Log.d("CONFERIR", "Entrou na RetrofitGetDataWeatherComplete()")
-        val retrofit = Retrofit.Builder()
-            .baseUrl(BaseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+        fileSD: File,
+        rc: RecyclerView,
+        ctx: Context,
+        callback: () -> Unit
+    ){
+        if(!jaDeuGet){
+            jaDeuGet = true
+            Log.d("CONFERIR", "Entrou na RetrofitGetDataWeatherComplete()")
+            val retrofit = Retrofit.Builder()
+                .baseUrl(BaseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
 
-        val service = retrofit.create(ServicoTempo::class.java)
-        val callCurrent = service.getCurrentWeatherData(lat, lon, Key)
-        val callDaily = service.getDailyWeatherData(lat, lon, Key)
+            val service = retrofit.create(ServicoTempo::class.java)
+            val callCurrent = service.getCurrentWeatherData(lat, lon, Key)
+            val callDaily = service.getDailyWeatherData(lat, lon, Key)
 
-        if(confereTimeGetCurrent(fileC) || trocar){
-            trocar = false
-            callCurrent.enqueue(object : Callback<RespostaTempoCurrent> {
-                override fun onFailure(call: Call<RespostaTempoCurrent>?, t: Throwable?) {
-                    Log.d("ESTOY DEBUGANDO", t!!.message!!)
-                }
-                override fun onResponse(
-                    call: Call<RespostaTempoCurrent>?,
-                    response: Response<RespostaTempoCurrent>?
-                ) {
-                    try {
-                        if(response!!.isSuccessful){
-                            dadosCurrent = response.body()
-
-                            SalvarDadosCurrent(fileSC)
-                        }else{
-                            Log.d("DEU ALGUM ERRO", call.toString())
-                        }
-                    }catch (e: Exception){
-                        Log.d("DEBUGANDo", e.message!!)
+            if(confereTimeGetCurrent(fileC) || trocar){
+                trocar = false
+                callCurrent.enqueue(object : Callback<RespostaTempoCurrent> {
+                    override fun onFailure(call: Call<RespostaTempoCurrent>?, t: Throwable?) {
+                        Log.d("ESTOY DEBUGANDO", t!!.message!!)
                     }
-                }
-            })
-        }else{
-            try {
-                PegarDadosCurrent(fileSC)
-                Log.d("NAO DEU GET", "NAO DEU GET")
-            }catch (e: Exception){
-                Log.e("ERROR GET CURRENT DATA", e.message!!)
-            }
-        }
-        if(confereTimeGetDaily(fileD) || trocar){
-            trocar = false
-            callDaily.enqueue(object: Callback<RespostaTempoDaily> {
-                override fun onResponse(
-                    call: Call<RespostaTempoDaily>?,
-                    response: Response<RespostaTempoDaily>?
-                ) {
-                    try {
-                        if(response!!.isSuccessful){
-                            dadosDaily = response!!.body()
-                            SalvarDadosDaily(fileSD)
+                    override fun onResponse(
+                        call: Call<RespostaTempoCurrent>?,
+                        response: Response<RespostaTempoCurrent>?
+                    ) {
+                        try {
+                            if(response!!.isSuccessful){
+                                dadosCurrent = response.body()
+                                Log.d("DADNDO GET", "get foi dado no current")
+                                SalvarDadosCurrent(fileSC)
+                                atualizarRecycle(rc, ctx, callback)
+                            }else{
+                                Log.d("DEU ALGUM ERRO", call.toString())
+                            }
+                        }catch (e: Exception){
+                            Log.d("DEBUGANDo", e.message!!)
                         }
-                    }catch (e: Exception){
-                        Log.e("ERROR", e.message!!)
                     }
+                })
+            }else{
+                try {
+                    PegarDadosCurrent(fileSC, rc, ctx, callback)
+                    Log.d("NAO DEU GET", "NAO DEU GET")
+                }catch (e: Exception){
+                    Log.e("ERROR GET CURRENT DATA", e.message!!)
                 }
-
-                override fun onFailure(call: Call<RespostaTempoDaily>?, t: Throwable?) {
-                    Log.d("ON FAILURE", t!!.message!!)
-                }
-            })
-        }else{
-            try {
-                PegarDadosDaily(fileSD)
-                Log.d("NAO DEU GET", "NAO DEU GET")
-            }catch (e: Exception){
-                Log.e("ERROR GET CURRENT DATA", e.message!!)
             }
+            if(confereTimeGetDaily(fileD) || trocar){
+                trocar = false
+                callDaily.enqueue(object: Callback<RespostaTempoDaily> {
+                    override fun onResponse(
+                        call: Call<RespostaTempoDaily>?,
+                        response: Response<RespostaTempoDaily>?
+                    ) {
+                        try {
+                            if(response!!.isSuccessful){
+                                dadosDaily = response!!.body()
+                                Log.d("DADNDO GET", "get foi dado no daily")
+                                SalvarDadosDaily(fileSD)
+                            }
+                        }catch (e: Exception){
+                            Log.e("ERROR", e.message!!)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<RespostaTempoDaily>?, t: Throwable?) {
+                        Log.d("ON FAILURE", t!!.message!!)
+                    }
+                })
+            }else{
+                try {
+                    PegarDadosDaily(fileSD)
+                    Log.d("NAO DEU GET", "NAO DEU GET")
+                }catch (e: Exception){
+                    Log.e("ERROR GET CURRENT DATA", e.message!!)
+                }
+            }
+        }else{
+            PegarDadosCurrent(fileSC, rc, ctx, callback)
+            PegarDadosDaily(fileSD)
         }
-
-        Thread.sleep(1000)
-
-        return true
     }
 
     internal fun confereTimeGetCurrent(file: File): Boolean {
@@ -235,6 +255,28 @@ class DadosTempoViewModel(): ViewModel() {
     companion object {
         var BaseUrl = "https://api.weatherbit.io/v2.0/"
         var Key = "d23cfc1f907f4ddabb842d94e18eb61d"
+    }
+
+    fun atualizarRecycle(rc: RecyclerView, context: Context, callback: ()-> Unit){
+        val infosLista = CriaLista()
+
+        val infosTempoAdapter = InfosTempoAdapter(infosLista)
+        rc.adapter = infosTempoAdapter
+        rc.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+
+        callback()
+    }
+
+    private fun CriaLista(): List<recycleInfosModel>{
+        val retornar = listOf(
+            recycleInfosModel("UV", R.drawable.simple_weather_icon_60, DadosCurrent().getUV()),
+            recycleInfosModel("Umidade Rel.", R.drawable.humidity, DadosCurrent().getUmidadeRelativa()),
+            recycleInfosModel("Vento Dir.", R.drawable.simple_weather_icon_47, DadosCurrent().getVentoDirMin()),
+            recycleInfosModel("Vento Vel.", R.drawable.windicon, DadosCurrent().getVentoVel()),
+            recycleInfosModel("Pressao", R.drawable.pressure, DadosCurrent().getPressao())
+        )
+
+        return retornar
     }
 
     inner class DadosCurrent(){
