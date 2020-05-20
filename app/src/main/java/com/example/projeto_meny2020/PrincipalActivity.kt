@@ -1,6 +1,7 @@
 package com.example.projeto_meny2020
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -15,9 +16,15 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.children
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.NavHostFragment
+import com.example.projeto_meny2020.ui.gallery.GalleryFragment
+import com.example.projeto_meny2020.ui.home.HomeFragment
 import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import kotlinx.android.synthetic.main.app_bar_principal.*
+import kotlinx.android.synthetic.main.content_principal.*
 
 class PrincipalActivity : AppCompatActivity() {
 
@@ -61,11 +68,29 @@ class PrincipalActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId;
         if (id == R.id.change_city){
-            Toast.makeText(this.applicationContext, "Ação de escolha de cidades em implementação", Toast.LENGTH_LONG).show()
+            dadosTempoViewModel.lat = "-23.573252"
+            dadosTempoViewModel.lon = "-46.641681"
+
+
+            if(dadosTempoViewModel.currentFragment is GalleryFragment){
+                val fAtual = dadosTempoViewModel.currentFragment as GalleryFragment
+                fAtual.DadosEViews2()
+            }else if(dadosTempoViewModel.currentFragment is HomeFragment){
+                val fAtual = dadosTempoViewModel.currentFragment as HomeFragment
+                fAtual.DadosEViews()
+            }else{
+                Toast.makeText(
+                    this.applicationContext,
+                    "Ocorreu algum erro",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+
             return true
         }
         return super.onOptionsItemSelected(item)
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)

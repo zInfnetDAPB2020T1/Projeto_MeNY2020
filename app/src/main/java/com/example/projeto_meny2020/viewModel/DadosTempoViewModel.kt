@@ -2,6 +2,8 @@ package com.example.projeto_meny2020.viewModel
 
 import android.content.Context
 import android.util.Log
+import android.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -43,6 +45,8 @@ class DadosTempoViewModel(): ViewModel() {
     var fileDir = ""
     private var jaDeuGet = false
 
+    var currentFragment: Fragment? = null
+
     fun getJaDeuGet(): Boolean{
         return jaDeuGet
     }
@@ -69,19 +73,21 @@ class DadosTempoViewModel(): ViewModel() {
         if(current.exists()){
             val stringPegar = current.readText()
             dadosCurrent = Gson().fromJson(stringPegar, RespostaTempoCurrent::class.java)
-            if(rc != null || ctx != null) atualizarRecycle(rc!!, ctx!!, callback)
+            if(rc != null || ctx != null) atualizarRecycleInfo(rc!!, ctx!!, callback)
         }else{
             dadosCurrent = RespostaTempoCurrent()
-            if(rc != null || ctx != null) atualizarRecycle(rc!!, ctx!!, callback)
+            if(rc != null || ctx != null) atualizarRecycleInfo(rc!!, ctx!!, callback)
         }
     }
 
-    fun PegarDadosDaily(daily: File){
+    fun PegarDadosDaily(daily: File, callback: () -> Unit, ctxTeste: Context?){
         if(daily.exists()){
             val stringPegar = daily.readText()
             dadosDaily = Gson().fromJson(stringPegar, RespostaTempoDaily::class.java)
+            if(ctxTeste == null) atualizarRecycleDaily(callback, ctxTeste)
         }else{
             dadosDaily = RespostaTempoDaily()
+            if(ctxTeste == null) atualizarRecycleDaily(callback, ctxTeste)
         }
     }
 
@@ -90,8 +96,8 @@ class DadosTempoViewModel(): ViewModel() {
         fileD: File,
         fileSC: File,
         fileSD: File,
-        rc: RecyclerView?,
-        ctx: Context?,
+        rcH: RecyclerView?,
+        ctxH: Context?,
         callback: () -> Unit
     ){
         if(!jaDeuGet || trocar){
@@ -121,8 +127,8 @@ class DadosTempoViewModel(): ViewModel() {
                                 dadosCurrent = response.body()
                                 Log.d("DADNDO GET", "get foi dado no current")
                                 SalvarDadosCurrent(fileSC)
-                                if(rc != null || ctx != null) {
-                                    atualizarRecycle(rc!!, ctx!!, callback)
+                                if(rcH != null || ctxH != null) {
+                                    atualizarRecycleInfo(rcH!!, ctxH!!, callback)
                                 }
                             }else{
                                 Log.d("DEU ALGUM ERRO", call.toString())
@@ -134,7 +140,7 @@ class DadosTempoViewModel(): ViewModel() {
                 })
             }else{
                 try {
-                    PegarDadosCurrent(fileSC, rc, ctx, callback)
+                    PegarDadosCurrent(fileSC, rcH, ctxH, callback)
                     Log.d("NAO DEU GET", "NAO DEU GET")
                 }catch (e: Exception){
                     Log.e("ERROR GET CURRENT DATA", e.message!!)
@@ -152,6 +158,7 @@ class DadosTempoViewModel(): ViewModel() {
                                 dadosDaily = response!!.body()
                                 Log.d("DADNDO GET", "get foi dado no daily")
                                 SalvarDadosDaily(fileSD)
+                                atualizarRecycleDaily(callback, ctxH)
                             }
                         }catch (e: Exception){
                             Log.e("ERROR", e.message!!)
@@ -164,19 +171,19 @@ class DadosTempoViewModel(): ViewModel() {
                 })
             }else{
                 try {
-                    PegarDadosDaily(fileSD)
+                    PegarDadosDaily(fileSD, callback, ctxH)
                     Log.d("NAO DEU GET", "NAO DEU GET")
                 }catch (e: Exception){
                     Log.e("ERROR GET CURRENT DATA", e.message!!)
                 }
             }
         }else{
-            if(rc != null || ctx != null) {
-                PegarDadosCurrent(fileSC, rc!!, ctx!!, callback)
+            if(rcH != null || ctxH != null) {
+                PegarDadosCurrent(fileSC, rcH!!, ctxH!!, callback)
             }else{
                 PegarDadosCurrent(fileSC, null, null, callback)
             }
-            PegarDadosDaily(fileSD)
+            PegarDadosDaily(fileSD, callback, ctxH)
         }
     }
 
@@ -265,7 +272,7 @@ class DadosTempoViewModel(): ViewModel() {
         var Key = "d23cfc1f907f4ddabb842d94e18eb61d"
     }
 
-    fun atualizarRecycle(rc: RecyclerView, context: Context, callback: ()-> Unit){
+    fun atualizarRecycleInfo(rc: RecyclerView, context: Context, callback: ()-> Unit){
         val infosLista = CriaLista()
 
         val infosTempoAdapter = InfosTempoAdapter(infosLista)
@@ -273,6 +280,10 @@ class DadosTempoViewModel(): ViewModel() {
         rc.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
 
         callback()
+    }
+
+    private fun atualizarRecycleDaily(callback: () -> Unit, ctx: Context?){
+        if(ctx == null) callback()
     }
 
     private fun CriaLista(): List<recycleInfosModel>{

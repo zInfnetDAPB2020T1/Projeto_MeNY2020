@@ -33,45 +33,42 @@ class GalleryFragment : Fragment() {
         activity!!.let {
             dadosTempoViewModel = ViewModelProviders.of(it)[DadosTempoViewModel::class.java]
         }
-//        galleryViewModel =
-//            ViewModelProviders.of(this).get(GalleryViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-//        val textView: TextView = root.findViewById(R.id.text_gallery)
-//        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var popular: MutableList<Forecast> = mutableListOf()
-        dadosTempoViewModel.dadosDaily!!.data!!.forEach {
-            popular.add(it)
-        }
+        dadosTempoViewModel.currentFragment = this
 
-        val dailyAdapter = RecyclerViewDailyAdapter(popular)
-
-        dailyRecyclerVwDias.adapter = dailyAdapter
-        dailyRecyclerVwDias.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        DadosEViews2()
     }
 
-    inner class DadosEViews(): AsyncTask<Unit, Unit, Unit>(){
-        override fun onPreExecute() {
-            super.onPreExecute()
-            if(!dadosTempoViewModel.getJaDeuGet()){
-                Toast.makeText(
-                    this@GalleryFragment.context!!,
-                    R.string.carregando_dados,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+//    fun atualizaRecycle(){
+//        var popular: MutableList<Forecast> = mutableListOf()
+//        dadosTempoViewModel.dadosDaily!!.data!!.forEach {
+//            popular.add(it)
+//        }
+//
+//        val dailyAdapter = RecyclerViewDailyAdapter(popular)
+//
+//        dailyRecyclerVwDias.adapter = dailyAdapter
+//        dailyRecyclerVwDias.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//    }
+
+    fun DadosEViews2() {
+
+
+        if (!dadosTempoViewModel.getJaDeuGet()) {
+            Toast.makeText(
+                this@GalleryFragment.context!!,
+                R.string.carregando_dados,
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
-        override fun doInBackground(vararg params: Unit?) {
-            getDadosViewModel()
-        }
+        getDadosViewModel()
     }
 
     fun getDadosViewModel(){
@@ -82,7 +79,15 @@ class GalleryFragment : Fragment() {
         val fileDSalvar = File(dadosTempoViewModel.fileDir, "dadosSalvosDaily.txt")
 
         val callback: () -> Unit = {
-            Log.d("debugando", "Chamada pela tela de 16 dias")
+            var popular: MutableList<Forecast> = mutableListOf()
+            dadosTempoViewModel.dadosDaily!!.data!!.forEach {
+                popular.add(it)
+            }
+
+            val dailyAdapter = RecyclerViewDailyAdapter(popular)
+
+            dailyRecyclerVwDias.adapter = dailyAdapter
+            dailyRecyclerVwDias.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         }
         try {
             dadosTempoViewModel.RetrofitGetDataWeatherComplete(fileCEscrever, fileDEscrever, fileCSalvar, fileDSalvar, null, null, callback)

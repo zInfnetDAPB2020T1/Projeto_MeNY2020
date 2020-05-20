@@ -41,24 +41,21 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        DadosEViews().execute()
+        dadosTempoViewModel.currentFragment = this
+
+        DadosEViews()
     }
 
-    inner class DadosEViews(): AsyncTask<Unit, Unit, Unit>(){
-        override fun onPreExecute() {
-            super.onPreExecute()
-            if(!dadosTempoViewModel.getJaDeuGet()){
-                Toast.makeText(
-                    this@HomeFragment.context!!,
-                    R.string.carregando_dados,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+    fun DadosEViews() {
+        if (!dadosTempoViewModel.getJaDeuGet()) {
+            Toast.makeText(
+                this@HomeFragment.context!!,
+                R.string.carregando_dados,
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
-        override fun doInBackground(vararg params: Unit?) {
-             getDadosViewModel()
-        }
+        getDadosViewModel()
     }
 
     fun getDadosViewModel(){
