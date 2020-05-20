@@ -28,6 +28,36 @@ import kotlinx.android.synthetic.main.content_principal.*
 
 class PrincipalActivity : AppCompatActivity() {
 
+    private val latLonList: Map<Int, List<String>> = mapOf(
+        R.id.saopaulo to listOf("-23.573252", "-46.641681"),
+        R.id.riodejaneiro to listOf("-22.875113", "-43.277548"),
+        R.id.belohorizonte to listOf("-19.901739", "-43.964196"),
+        R.id.portoalegre to listOf("-30.033333", "-51.2"),
+        R.id.recife to listOf("-8.05", "-34.9"),
+        R.id.fortaleza to listOf("-3.737464", "-38.546167"),
+        R.id.salvador to listOf("-12.983333", "-38.516667"),
+        R.id.curitiba to listOf("-25.416667", "-49.25"),
+        R.id.belem to listOf("-1.437281", "-48.470614"),
+        R.id.goiania to listOf("-16.701028", "-49.266793"),
+        R.id.manaus to listOf("-3.113333", "-60.025278"),
+        R.id.vitoria to listOf("-20.332179", "-40.345011"),
+        R.id.maceio to listOf("-9.652406", "-35.722433"),
+        R.id.natal to listOf("-5.80021", "-35.210669"),
+        R.id.saoluis to listOf("-2.532519", "-44.296299"),
+        R.id.florianopolis to listOf("-27.590444", "-48.57581"),
+        R.id.joaopessoa to listOf("-7.123742", "-34.865646"),
+        R.id.teresina to listOf("-5.102887", "-42.801549"),
+        R.id.cuiaba to listOf("-15.596", "-56.097"),
+        R.id.campogrande to listOf("-20.45", "-54.616667"),
+        R.id.aracaju to listOf("-10.916667", "-37.066667"),
+        R.id.macapa to listOf("0.035158", "-51.061633"),
+        R.id.portovelho to listOf("-8.766667", "-63.9"),
+        R.id.riobranco to listOf("-9.966667", "-67.8"),
+        R.id.palmas to listOf("-10.166944", "-48.332778"),
+        R.id.boavista to listOf("2.820842", "-60.671312"),
+        R.id.brasilia to listOf("-15.783333", "-47.916667")
+    )
+
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
 
@@ -66,7 +96,8 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId){
+        super.onOptionsItemSelected(item)
+        when (item.itemId){
             R.id.aracaju, R.id.belem, R.id.belohorizonte, R.id.boavista,
             R.id.brasilia, R.id.campogrande, R.id.cuiaba, R.id.curitiba,
             R.id.florianopolis, R.id.fortaleza, R.id.goiania, R.id.joaopessoa,
@@ -74,10 +105,27 @@ class PrincipalActivity : AppCompatActivity() {
             R.id.portoalegre, R.id.portovelho, R.id.recife, R.id.riobranco,
             R.id.riodejaneiro, R.id.salvador, R.id.saoluis, R.id.saopaulo,
             R.id.teresina, R.id.vitoria -> {
+
                 Toast.makeText(this, "A cidade selecionada foi: ${item}", Toast.LENGTH_SHORT).show()
-                return true
+
+                dadosTempoViewModel.lat = latLonList[item.itemId]!![0]
+                dadosTempoViewModel.lon = latLonList[item.itemId]!![1]
+
+                if(dadosTempoViewModel.currentFragment is GalleryFragment){
+                    val fAtual = dadosTempoViewModel.currentFragment as GalleryFragment
+                    fAtual.DadosEViews2()
+                }else if(dadosTempoViewModel.currentFragment is HomeFragment){
+                    val fAtual = dadosTempoViewModel.currentFragment as HomeFragment
+                    fAtual.DadosEViews()
+                }else{
+                    Log.e("Mudar lat/lon", "ocorreu algum erro ao pegar os fragments")
+                }
+                return false
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> {
+                Log.d("ERRO AO CLICAR TOOLBAR", "algo inesperado esta acontecendo")
+                return false
+            }
         }
     }
 

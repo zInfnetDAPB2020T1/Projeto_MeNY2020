@@ -113,7 +113,6 @@ class DadosTempoViewModel(): ViewModel() {
             val callDaily = service.getDailyWeatherData(lat, lon, Key)
 
             if(confereTimeGetCurrent(fileC) || trocar){
-                trocar = false
                 callCurrent.enqueue(object : Callback<RespostaTempoCurrent> {
                     override fun onFailure(call: Call<RespostaTempoCurrent>?, t: Throwable?) {
                         Log.d("ESTOY DEBUGANDO", t!!.message!!)
