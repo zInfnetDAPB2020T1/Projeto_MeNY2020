@@ -61,34 +61,24 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.principal,menu);
+        menuInflater.inflate(R.menu.principal,menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId;
-        if (id == R.id.change_city){
-            dadosTempoViewModel.lat = "-23.573252"
-            dadosTempoViewModel.lon = "-46.641681"
-
-
-            if(dadosTempoViewModel.currentFragment is GalleryFragment){
-                val fAtual = dadosTempoViewModel.currentFragment as GalleryFragment
-                fAtual.DadosEViews2()
-            }else if(dadosTempoViewModel.currentFragment is HomeFragment){
-                val fAtual = dadosTempoViewModel.currentFragment as HomeFragment
-                fAtual.DadosEViews()
-            }else{
-                Toast.makeText(
-                    this.applicationContext,
-                    "Ocorreu algum erro",
-                    Toast.LENGTH_LONG
-                ).show()
+        return when (item.itemId){
+            R.id.aracaju, R.id.belem, R.id.belohorizonte, R.id.boavista,
+            R.id.brasilia, R.id.campogrande, R.id.cuiaba, R.id.curitiba,
+            R.id.florianopolis, R.id.fortaleza, R.id.goiania, R.id.joaopessoa,
+            R.id.macapa, R.id.maceio, R.id.manaus, R.id.natal, R.id.palmas,
+            R.id.portoalegre, R.id.portovelho, R.id.recife, R.id.riobranco,
+            R.id.riodejaneiro, R.id.salvador, R.id.saoluis, R.id.saopaulo,
+            R.id.teresina, R.id.vitoria -> {
+                Toast.makeText(this, "A cidade selecionada foi: ${item}", Toast.LENGTH_SHORT).show()
+                return true
             }
-
-            return true
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
 
 
@@ -96,5 +86,7 @@ class PrincipalActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
 
 }

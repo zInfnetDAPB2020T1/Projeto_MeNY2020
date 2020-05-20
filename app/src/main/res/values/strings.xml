@@ -31,4 +31,34 @@
     <string name="mudar_cidade">Alterar cidade</string>
 
     <string name="carregando_dados">Estamos carregando seus dados, por favor, aguarde!</string>
+
+    <string name="aracaju">Aracaju</string>
+    <string name="belohorizonte">Belo Horizonte</string>
+    <string name="belem">Belém</string>
+    <string name="boavista">Boa Vista</string>
+    <string name="brasilia">Brasília</string>
+    <string name="campogrande">Campo Grande</string>
+    <string name="cuiaba">Cuiabá</string>
+    <string name="curitiba">Curitiba</string>
+    <string name="florianopolis">Florianópolis</string>
+    <string name="fortaleza">Fortaleza</string>
+    <string name="goiania">Goiânia</string>
+    <string name="joaopessoa">João Pessoa</string>
+    <string name="macapa">Macapá</string>
+    <string name="maceio">Maceió</string>
+    <string name="manaus">Manaus</string>
+    <string name="natal">Natal</string>
+    <string name="palmas">Palmas</string>
+    <string name="portoalegre">Porto Alegre</string>
+    <string name="portovelho">Porto Velho</string>
+    <string name="recife">Recife</string>
+    <string name="riobranco">Rio Branco</string>
+    <string name="riodejaneiro">Rio de Janeiro</string>
+    <string name="salvador">Salvador</string>
+    <string name="saoluis">São Luís</string>
+    <string name="saopaulo">São Paulo</string>
+    <string name="teresina">Teresina</string>
+    <string name="vitoria">Vitória</string>
+
 </resources>
+
