@@ -24,6 +24,9 @@ import com.example.projeto_meny2020.textgradient.MyGradientTextView
 import com.example.projeto_meny2020.ui.gallery.GalleryFragment
 import com.example.projeto_meny2020.ui.home.HomeFragment
 import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.app_bar_principal.*
 import kotlinx.android.synthetic.main.content_principal.*
 import kotlinx.android.synthetic.main.recycler_dias_seguintes.*
@@ -96,6 +99,12 @@ class PrincipalActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        MobileAds.initialize(this)
+        val header = navView.getHeaderView(0)
+        val adview = header.findViewById(R.id.adView) as AdView
+        val request = AdRequest.Builder().build()
+        adview.loadAd(request)
 
 //        var gradient_max = gradientTextView.setColors(R.color.primaryColor, R.color.colorMax)
 //        var gradient_min = gradientTextView.setColors2(R.color.colorMinGradient, R.color.colorMin)
