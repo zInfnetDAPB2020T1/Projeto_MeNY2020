@@ -25,7 +25,7 @@ class Forecast(
     val app_max_temp: Float = 0f,
     val app_min_temp : Float = 0f ,
     val rh : Int = 0,
-    val clouds : Int = 0,
+    val clouds : Float = 0f,
     val weather: weatherInfo? = weatherInfo() ,
     val slp : Float = 0f,
     val pres: Float = 0f ,
@@ -78,8 +78,13 @@ class Forecast(
     }
 
     fun getStatus():String{
-        //Calculo de nuvens
-        return "Nublado"
+        if(clouds in 0.0..50.0){
+            return "Ensolarado"
+        }else if(clouds in 51.0..70.0){
+            return "Parcialmente Nublado"
+        }else {
+            return "Nublado"
+        }
     }
 
     fun getPct():String{

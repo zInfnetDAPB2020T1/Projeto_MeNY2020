@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="28°"
-            android:textColor="@color/colorMax"
+            android:textColor="@color/colorMin"
             android:textSize="28sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/diaProxDias"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:text="24°"
-            android:textColor="@color/colorMin"
+            android:textColor="@color/colorMax"
             android:textSize="28sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/minProxDias"
             app:layout_constraintStart_toEndOf="@+id/textView4" />
@@ -91,14 +91,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/previsaoStatusIconImgVw"
             android:layout_width="61dp"
             android:layout_height="49dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/divider2"
-            app:layout_constraintHorizontal_bias="0.631"
             app:layout_constraintStart_toEndOf="@+id/divider"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.352"
@@ -131,11 +130,11 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/divider2"
             app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/previsaoStatusIconImgVw"
             app:layout_constraintVertical_bias="0.666" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/previsaoRainStatusIconImgVw"
             android:layout_width="49dp"
             android:layout_height="50dp"
             android:layout_marginStart="12dp"
@@ -157,7 +156,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/divider2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            app:layout_constraintTop_toBottomOf="@+id/previsaoRainStatusIconImgVw" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
