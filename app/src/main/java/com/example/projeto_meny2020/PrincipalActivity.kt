@@ -20,11 +20,16 @@ import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
+import com.example.projeto_meny2020.textgradient.MyGradientTextView
 import com.example.projeto_meny2020.ui.gallery.GalleryFragment
 import com.example.projeto_meny2020.ui.home.HomeFragment
 import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import kotlinx.android.synthetic.main.app_bar_principal.*
 import kotlinx.android.synthetic.main.content_principal.*
+import kotlinx.android.synthetic.main.recycler_dias_seguintes.*
+import kotlinx.android.synthetic.main.recycler_dias_seguintes_gradient.*
+import kotlinx.android.synthetic.main.recycler_dias_seguintes_gradient.maxProxDias
+import kotlinx.android.synthetic.main.recycler_dias_seguintes_gradient.minProxDias
 
 class PrincipalActivity : AppCompatActivity() {
 
@@ -60,11 +65,14 @@ class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
+    //lateinit var gradientTextView : MyGradientTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
+
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -88,6 +96,10 @@ class PrincipalActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+//        var gradient_max = gradientTextView.setColors(R.color.primaryColor, R.color.colorMax)
+//        var gradient_min = gradientTextView.setColors2(R.color.colorMinGradient, R.color.colorMin)
+//        //não sei colocar para o text view, n sei se é aqui ou dentro do adapter do recycle
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

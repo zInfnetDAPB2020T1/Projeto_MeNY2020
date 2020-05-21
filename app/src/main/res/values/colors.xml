@@ -12,4 +12,6 @@
     <color name="google_bg">#DAD8D6D6</color>
     <color name="colorMax">#F44336</color>
     <color name="colorMin">#2196F3</color>
+    <color name="colorMinGradient">#00ffde</color>
+
 </resources>
