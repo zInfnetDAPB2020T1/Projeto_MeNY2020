@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/diaProxDias"
             app:layout_constraintVertical_bias="1.0" />
 
-        <TextView
+        <com.example.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/minProxDias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.example.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/maxProxDias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/previsaoStatusIconImgVw"
             app:layout_constraintVertical_bias="0.62" />
 
         <ImageView

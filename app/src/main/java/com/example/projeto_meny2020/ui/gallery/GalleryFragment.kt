@@ -84,7 +84,7 @@ class GalleryFragment : Fragment() {
                 popular.add(it)
             }
 
-            val dailyAdapter = RecyclerViewDailyAdapter(popular)
+            val dailyAdapter = RecyclerViewDailyAdapter(popular, dadosTempoViewModel.dadosDaily!!.city_name)
 
             dailyRecyclerVwDias.adapter = dailyAdapter
             dailyRecyclerVwDias.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

@@ -8,7 +8,7 @@ import com.example.projeto_meny2020.R
 import com.example.projeto_meny2020.classes.modelsRetrofit.Forecast
 import kotlinx.android.synthetic.main.recycler_dias_seguintes.view.*
 
-class RecyclerViewDailyAdapter(val listaForecast: List<Forecast>): RecyclerView.Adapter<RecyclerViewDailyAdapter.DailyViewHolder>() {
+class RecyclerViewDailyAdapter(val listaForecast: List<Forecast>, val cidadeNome: String): RecyclerView.Adapter<RecyclerViewDailyAdapter.DailyViewHolder>() {
     class DailyViewHolder(v: View): RecyclerView.ViewHolder(v){
         val campoDia = v.diaProxDias
         val campoMes = v.mesProxDias
@@ -16,6 +16,7 @@ class RecyclerViewDailyAdapter(val listaForecast: List<Forecast>): RecyclerView.
         val campoMax = v.maxProxDias
         val campoStatus = v.statusProxDias
         val campoPorcentagem = v.porcentagemProxDias
+        val campoCidade = v.cidadeEscolhida
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyViewHolder {
@@ -35,9 +36,12 @@ class RecyclerViewDailyAdapter(val listaForecast: List<Forecast>): RecyclerView.
         val item = listaForecast[position]
         holder.campoDia.text = item.getDia()
         holder.campoMax.text = item.getMax()
+        holder.campoMax.setColors(R.color.primaryColor, R.color.colorMax)
         holder.campoMes.text = item.getMes()
         holder.campoMin.text = item.getMin()
+        holder.campoMin.setColors2(R.color.colorMinGradient, R.color.colorMin)
         holder.campoPorcentagem.text = item.getPct()
         holder.campoStatus.text = item.getStatus()
+        holder.campoCidade.text = cidadeNome
     }
 }
