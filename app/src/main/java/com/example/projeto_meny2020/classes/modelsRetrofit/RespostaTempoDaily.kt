@@ -53,7 +53,7 @@ class Forecast(
 
     fun getMes():String{
         val splitado = datetime.split("-")
-        return when(splitado[1].toString()){
+        return when(splitado[1]){
             "01" -> "JAN"
             "02" -> "FEV"
             "03" -> "MAR"
@@ -71,15 +71,15 @@ class Forecast(
     }
 
     fun getTemp(): String{
-        return temp.toString()
+        return temp.toInt().toString() + "°C"
     }
 
     fun getMin(): String{
-        return min_temp.toString()
+        return min_temp.toInt().toString() + "°C"
     }
 
     fun getMax():String{
-        return max_temp.toString()
+        return max_temp.toInt().toString() + "°C"
     }
 
     fun getStatus():String{
@@ -93,7 +93,7 @@ class Forecast(
     }
 
     fun getPct():String{
-        return pop.toString()
+        return pop.toInt().toString() + "%"
     }
 }
 
