@@ -38,15 +38,24 @@ class RecyclerViewDailyAdapter(val listaForecast: List<Forecast>, val cidadeNome
     override fun onBindViewHolder(holder: DailyViewHolder, position: Int) {
         val item = listaForecast[position]
         holder.campoDia.text = item.getDia()
+
         holder.campoMax.text = item.getMax()
         holder.campoMax.setColors(R.color.primaryColor, R.color.colorMax)
+
         holder.campoMes.text = item.getMes()
+
         holder.campoMin.text = item.getMin()
         holder.campoMin.setColors2(R.color.colorMinGradient, R.color.colorMin)
+
         holder.campoTemp.text = item.getTemp()
         holder.campoTemp.setColors3(R.color.primaryColor, R.color.primaryLightColor)
+
         holder.campoPorcentagem.text = item.getPct()
+
         holder.campoStatus.text = item.getStatus()
+
+        holder.campoIconStatus.setImageResource(item.getIcone())
+
         holder.campoCidade.text = cidadeNome
     }
 }

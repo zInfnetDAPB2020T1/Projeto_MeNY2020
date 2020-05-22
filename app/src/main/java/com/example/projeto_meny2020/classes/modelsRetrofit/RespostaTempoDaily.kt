@@ -1,5 +1,7 @@
 package com.example.projeto_meny2020.classes.modelsRetrofit
 
+import com.example.projeto_meny2020.R
+
 class RespostaTempoDaily(
     val city_name: String = "STRING CITY_NAME NULL",
     val state_code: String = "STATE_CODE NULL",
@@ -86,9 +88,20 @@ class Forecast(
         if(clouds in 0.0..50.0){
             return "Ensolarado"
         }else if(clouds in 51.0..70.0){
-            return "Parcialmente nublado"
+            return "Parcialmente Nublado"
         }else {
             return "Nublado"
+        }
+    }
+
+    fun getIcone(): Int{
+        val string = getStatus()
+        if(string == "Ensolarado"){
+            return R.drawable.suniconff9800
+        }else if(string == "Parcialmente Nublado"){
+            return R.drawable.parcialmentenublado
+        }else{
+            return R.drawable.nublado
         }
     }
 
