@@ -46,7 +46,7 @@
 
         <com.example.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/tempProxDias"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:text="28.3"
@@ -63,8 +63,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="11dp"
             android:alpha="0.9"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="27.9"
+            android:text="10ºC"
             android:textColor="@color/colorMax"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@+id/cidadeEscolhida"
@@ -79,8 +78,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginBottom="11dp"
             android:alpha="0.9"
-            android:gravity="center|center_vertical"
-            android:text="24.9"
+            android:text="24ºC"
             android:textColor="@color/colorMin"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -193,7 +191,7 @@
             android:layout_marginBottom="8dp"
             android:background="?android:attr/listDivider"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/minProxDias"
+            app:layout_constraintStart_toEndOf="@+id/maxProxDias"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
