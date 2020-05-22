@@ -6,7 +6,9 @@
     android:layout_height="120dp"
     android:layout_margin="5dp"
     app:cardBackgroundColor="#FFFFFF"
-    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardMaxElevation="0dp"
+    app:cardPreventCornerOverlap="true"
     tools:context=".ui.gallery.GalleryFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -147,28 +149,30 @@
             android:id="@+id/previsaoRainStatusIconImgVw"
             android:layout_width="61dp"
             android:layout_height="49dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="11dp"
             android:alpha="0.65"
             app:layout_constraintEnd_toStartOf="@+id/divider2"
+            app:layout_constraintStart_toEndOf="@+id/previsaoStatusIconImgVw"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/rainlinearfullwhite"
             tools:srcCompat="@drawable/rainlinearfullwhite" />
 
         <TextView
             android:id="@+id/porcentagemProxDias"
-            android:layout_width="wrap_content"
+            android:layout_width="35dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="32dp"
             android:layout_marginBottom="16dp"
             android:alpha="0.9"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="30%"
+            android:background="@drawable/chance_of_rain_bubble"
+            android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/divider2" />
+            app:layout_constraintStart_toEndOf="@+id/statusProxDias" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"

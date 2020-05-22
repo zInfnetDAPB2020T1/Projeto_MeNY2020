@@ -14,9 +14,12 @@ class RecyclerViewDailyAdapter(val listaForecast: List<Forecast>, val cidadeNome
         val campoMes = v.mesProxDias
         val campoMin = v.minProxDias
         val campoMax = v.maxProxDias
+        val campoTemp = v.tempProxDias
         val campoStatus = v.statusProxDias
         val campoPorcentagem = v.porcentagemProxDias
         val campoCidade = v.cidadeEscolhida
+        //holder e função não feitos
+        val campoIconStatus = v.previsaoStatusIconImgVw
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyViewHolder {
@@ -40,6 +43,8 @@ class RecyclerViewDailyAdapter(val listaForecast: List<Forecast>, val cidadeNome
         holder.campoMes.text = item.getMes()
         holder.campoMin.text = item.getMin()
         holder.campoMin.setColors2(R.color.colorMinGradient, R.color.colorMin)
+        holder.campoTemp.text = item.getTemp()
+        holder.campoTemp.setColors3(R.color.primaryColor, R.color.primaryLightColor)
         holder.campoPorcentagem.text = item.getPct()
         holder.campoStatus.text = item.getStatus()
         holder.campoCidade.text = cidadeNome

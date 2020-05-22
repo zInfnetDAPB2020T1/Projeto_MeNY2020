@@ -18,6 +18,7 @@ class Forecast(
     val snow: Float = 0f,
     val snow_depth: Float = 0f,
     val precip: Float = 0f,
+    //Precisamos colocar isso
     val temp : Float = 0f,
     val dewpt :Float = 0f,
     val max_temp : Float = 0f,
@@ -69,6 +70,10 @@ class Forecast(
         }
     }
 
+    fun getTemp(): String{
+        return temp.toString()
+    }
+
     fun getMin(): String{
         return min_temp.toString()
     }
@@ -81,7 +86,7 @@ class Forecast(
         if(clouds in 0.0..50.0){
             return "Ensolarado"
         }else if(clouds in 51.0..70.0){
-            return "Parcialmente Nublado"
+            return "Parcialmente nublado"
         }else {
             return "Nublado"
         }

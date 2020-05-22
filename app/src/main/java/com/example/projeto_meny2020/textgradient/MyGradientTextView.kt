@@ -30,6 +30,10 @@ class MyGradientTextView : androidx.appcompat.widget.AppCompatTextView {
         this.primaryColor = primaryColor
         this.secondaryColor = secondaryColor
     }
+    fun setColors3(primaryColor: Int, secondaryColor: Int){
+        this.primaryColor = primaryColor
+        this.secondaryColor = secondaryColor
+    }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
