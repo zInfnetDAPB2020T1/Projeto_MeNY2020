@@ -39,7 +39,7 @@
             android:layout_marginStart="15dp"
             android:text="Rio de Janeiro"
             android:textColor="#E6FFFFFF"
-            android:textSize="10sp"
+            android:textSize="12sp"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

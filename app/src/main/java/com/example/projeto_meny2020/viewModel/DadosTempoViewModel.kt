@@ -34,19 +34,19 @@ class DadosTempoViewModel(): ViewModel() {
             jaDeuGet = false
             trocar = true
             field = value
-            val fileLatLon = File(fileDir, "latlon.txt")
-            if(fileLatLon.exists()){
-                fileLatLon.writeText("$lat/$lon")
-            }else{
-                Log.e("Nao e possivel", "isto nao deveria ser mostrado, algum erro ocorreu.")
-            }
+
         }
     var lon = "-43.277548"
         set(value) {
             jaDeuGet = false
             trocar = true
             field = value
-
+            val fileLatLon = File(fileDir, "latlon.txt")
+            if(fileLatLon.exists()){
+                fileLatLon.writeText("$lat/$lon")
+            }else{
+                Log.e("Nao e possivel", "isto nao deveria ser mostrado, algum erro ocorreu.")
+            }
         }
     private var trocar = false
     var fileDir = ""

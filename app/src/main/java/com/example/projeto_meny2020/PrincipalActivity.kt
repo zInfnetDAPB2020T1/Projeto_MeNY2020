@@ -52,7 +52,7 @@ class PrincipalActivity : AppCompatActivity() {
         R.id.maceio to listOf("-9.652406", "-35.722433"),
         R.id.natal to listOf("-5.80021", "-35.210669"),
         R.id.saoluis to listOf("-2.532519", "-44.296299"),
-        R.id.florianopolis to listOf("27.590444", "48.57581"),
+        R.id.florianopolis to listOf("-27.5949", "-48.5482"),
         R.id.joaopessoa to listOf("-7.123742", "-34.865646"),
         R.id.teresina to listOf("-5.102887", "-42.801549"),
         R.id.cuiaba to listOf("-15.596", "-56.097"),
