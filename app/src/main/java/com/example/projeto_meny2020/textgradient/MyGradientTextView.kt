@@ -22,18 +22,26 @@ class MyGradientTextView : androidx.appcompat.widget.AppCompatTextView {
         defStyleAttr
     )
 
+    //Maxima
     fun setColors(primaryColor: Int, secondaryColor: Int){
         this.primaryColor = primaryColor
         this.secondaryColor = secondaryColor
     }
+    //Minima
     fun setColors2(primaryColor: Int, secondaryColor: Int){
         this.primaryColor = primaryColor
         this.secondaryColor = secondaryColor
     }
+    //Current
     fun setColors3(primaryColor: Int, secondaryColor: Int){
         this.primaryColor = primaryColor
         this.secondaryColor = secondaryColor
     }
+
+//    fun setColors4(primaryColor: Int, secondaryColor: Int){
+//        this.primaryColor = primaryColor
+//        this.secondaryColor = secondaryColor
+//    }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)

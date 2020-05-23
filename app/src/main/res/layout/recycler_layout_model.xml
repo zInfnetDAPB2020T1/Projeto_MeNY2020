@@ -10,13 +10,13 @@
         android:layout_height="130dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="13dp"
-        app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/bg1">
 
             <ImageView
                 android:id="@+id/iconMetVariable"
@@ -51,11 +51,11 @@
                 android:id="@+id/typeMetVariable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="5dp"
                 android:foregroundGravity="center_vertical|center|center_horizontal"
                 android:gravity="center|center_horizontal|center_vertical"
                 android:text="DIR.DO VENTO"
-                android:textColor="#333333"
+                android:textColor="@color/secondaryTextColor"
                 android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -66,9 +66,9 @@
                 android:id="@+id/dataMetVariable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="5dp"
                 android:text="NE"
-                android:textColor="#333333"
+                android:textColor="@color/secondaryTextColor"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

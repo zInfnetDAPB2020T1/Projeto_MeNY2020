@@ -30,9 +30,6 @@ import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.app_bar_principal.*
 import kotlinx.android.synthetic.main.content_principal.*
 import kotlinx.android.synthetic.main.recycler_dias_seguintes.*
-import kotlinx.android.synthetic.main.recycler_dias_seguintes_gradient.*
-import kotlinx.android.synthetic.main.recycler_dias_seguintes_gradient.maxProxDias
-import kotlinx.android.synthetic.main.recycler_dias_seguintes_gradient.minProxDias
 
 class PrincipalActivity : AppCompatActivity() {
 

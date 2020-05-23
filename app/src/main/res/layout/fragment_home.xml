@@ -4,23 +4,178 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8E8E8"
+    android:background="@color/secondaryTextColor"
     android:elevation="50sp"
     tools:context=".ui.home.HomeFragment">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl15vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="295dp"
+        android:background="@drawable/bg1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl32vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.325" />
+        <TextView
+            android:id="@+id/currentTempTxtVwHome"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="54dp"
+            android:layout_marginBottom="30dp"
+            android:text="30ºC"
+            android:textColor="#FFFFFF"
+            android:textSize="65sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/currentTempMaxTxtVwHome"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:text="33º"
+            android:textColor="#F44336"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/currentTempMinTxtVwHome"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:text="24º"
+            android:textColor="#2196F3"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/iconImgVwHome"
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:layout_marginTop="35dp"
+            android:foregroundGravity="center_vertical|center|center_horizontal"
+            android:src="@drawable/suntest"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="65dp"
+            android:src="@drawable/ic_temp_min_black_24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
+
+        <TextView
+            android:id="@+id/currentSensacaoTxtVwHome"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:text="SENSAÇÃO TÉRMICA "
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        <TextView
+            android:id="@+id/currentSensacaoDataTxtVwHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="47dp"
+            android:text="32ºC"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentSensacaoTxtVwHome"
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/ic_max_temp_black_24dp"
+            app:layout_constraintStart_toEndOf="@+id/currentTempMinTxtVwHome"
+            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
+
+        <TextView
+            android:id="@+id/currentDescriptionTxtVwHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="Céu limpo"
+            android:textColor="#B4FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconImgVwHome" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="120dp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="77dp"
+            android:foregroundGravity="center"
+            android:src="@drawable/linhaseparadora"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/currentCityTxtVwHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="1dp"
+            android:text="Rio de Janeiro"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageView6"
+            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="175dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="19dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="40dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="183dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl50vertical"
@@ -31,14 +186,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.5"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl67vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:verticalScrollbarPosition="right"
-        app:layout_constraintGuide_percent="0.675" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl125horizontal"
@@ -55,24 +202,6 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.25" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl375horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.375" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl50horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl625horizontal"
@@ -97,130 +226,33 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.875" />
 
-    <ImageView
-        android:id="@+id/iconImgVwHome"
-        android:layout_width="82dp"
-        android:layout_height="82dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="41dp"
-        android:src="@drawable/icon_ensolarado"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/currentTempTxtVwHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="30º"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.038"
-        app:layout_constraintStart_toEndOf="@+id/iconImgVwHome"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/currentTempMaxTxtVwHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:text="33º"
-        android:textColor="#F44336"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iconImgVwHome"
-        app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
-
-    <TextView
-        android:id="@+id/currentTempMinTxtVwHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="24º"
-        android:textColor="#2196F3"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/divisaoMaxMinTxtVwHome"
-        app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
-
-    <TextView
-        android:id="@+id/divisaoMaxMinTxtVwHome"
-        android:layout_width="7dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="/"
-        app:layout_constraintStart_toEndOf="@+id/currentTempMaxTxtVwHome"
-        app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
-
-    <TextView
-        android:id="@+id/currentDescriptionTxtVwHome"
-        android:layout_width="93dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="62dp"
-        android:text="Céu limpo"
-        android:textColor="#B41E1E1E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/currentTempMinTxtVwHome"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/currentSensacaoTxtVwHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="10dp"
-        android:text="Sensação térmica: "
-        android:textColor="#858585"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.388"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentTempMaxTxtVwHome" />
-
-    <TextView
-        android:id="@+id/currentSensacaoDataTxtVwHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="32ºC"
-        android:textColor="#B41E1E1E"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/currentSensacaoTxtVwHome"
-        app:layout_constraintTop_toBottomOf="@+id/currentTempMaxTxtVwHome" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="287dp"
-        android:layout_height="191dp"
-        android:layout_marginTop="13dp"
+        android:layout_width="290dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg2"
         android:scrollbarStyle="outsideInset"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
         app:layout_constraintVertical_bias="0.13">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/bg1"
             android:elevation="50dp">
 
             <TextView
                 android:id="@+id/currentSunsetCardVwHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginEnd="52dp"
                 android:text="19:32"
-                android:textColor="#B41E1E1E"
+                android:textColor="@color/secondaryTextColor"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -231,9 +263,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="53dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="60dp"
                 android:text="06:22"
-                android:textColor="#B41E1E1E"
+                android:textColor="@color/secondaryTextColor"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -243,38 +275,14 @@
                 android:id="@+id/divisaoSunsetSunriseTxtCardVwHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginEnd="6dp"
                 android:text=" . . ."
-                android:textColor="#B41E1E1E"
+                android:textColor="@color/secondaryTextColor"
                 android:textSize="36sp"
                 app:layout_constraintEnd_toStartOf="@+id/iconSunsetCardVwHome"
                 app:layout_constraintHorizontal_bias="0.481"
                 app:layout_constraintStart_toEndOf="@+id/iconSunriseCardVwHome"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/titleSunriseTxtCardVwHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="21dp"
-                android:text="Sunrise"
-                android:textColor="#B41E1E1E"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/titleSunsetTxtCardVwHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="21dp"
-                android:layout_marginEnd="51dp"
-                android:text="Sunset"
-                android:textColor="#B41E1E1E"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -282,42 +290,27 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="42dp"
-                android:layout_marginTop="1dp"
                 android:src="@drawable/sunrise_icon"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleSunriseTxtCardVwHome" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iconSunsetCardVwHome"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="1dp"
                 android:layout_marginEnd="42dp"
                 android:src="@drawable/sunset_icon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleSunsetTxtCardVwHome" />
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tipdayCardVwHome"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="21dp"
-                android:gravity="center|center_horizontal|center_vertical"
-                android:text="Dica do dia: Evite se expor ao sol e beba bastante líquido!"
-                android:textColor="#313435"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/infosRcyVwHome"
-        android:layout_width="290dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         android:scrollbars="horizontal"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -325,5 +318,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_begin="61dp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="61dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

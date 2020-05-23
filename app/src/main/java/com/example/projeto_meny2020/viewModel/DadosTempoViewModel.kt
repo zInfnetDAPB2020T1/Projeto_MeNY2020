@@ -301,11 +301,11 @@ class DadosTempoViewModel(): ViewModel() {
 
     private fun CriaLista(): List<recycleInfosModel>{
         val retornar = listOf(
-            recycleInfosModel("UV", R.drawable.simple_weather_icon_60, DadosCurrent().getUV()),
-            recycleInfosModel("Umidade Rel.", R.drawable.humidity, DadosCurrent().getUmidadeRelativa()),
-            recycleInfosModel("Vento Dir.", R.drawable.simple_weather_icon_47, DadosCurrent().getVentoDirMin()),
-            recycleInfosModel("Vento Vel.", R.drawable.windicon, DadosCurrent().getVentoVel()),
-            recycleInfosModel("Pressao", R.drawable.pressure, DadosCurrent().getPressao())
+            recycleInfosModel("UV", R.drawable.icon_recycler_uv, DadosCurrent().getUV()),
+            recycleInfosModel("Umidade Rel.", R.drawable.icon_current_relative_humidy, DadosCurrent().getUmidadeRelativa()),
+            recycleInfosModel("Vento Dir.", R.drawable.icon_recycler_wind_dir, DadosCurrent().getVentoDirMin()),
+            recycleInfosModel("Vento Vel.", R.drawable.icon_recycler_wind_speed, DadosCurrent().getVentoVel()),
+            recycleInfosModel("Pressão", R.drawable.icon_recycler_pressao, DadosCurrent().getPressao())
         )
 
         return retornar

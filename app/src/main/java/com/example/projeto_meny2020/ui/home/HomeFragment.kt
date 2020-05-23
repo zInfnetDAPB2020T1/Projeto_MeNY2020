@@ -68,12 +68,17 @@ class HomeFragment : Fragment() {
         val callback: () -> Unit = {
             currentDescriptionTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getDescricao()
             currentTempTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperatura()
+            //currentTempTxtVwHome.setColors3(R.color.primaryColor, R.color.primaryLightColor)
+
             currentTempMinTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMin()
+
             currentTempMaxTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMax()
+
             currentSensacaoDataTxtVwHome.text =
                 dadosTempoViewModel.DadosCurrent().getSensacaoTerminca()
             currentSunriseCardVwHome.text = dadosTempoViewModel.DadosCurrent().getNascerSol()
             currentSunsetCardVwHome.text = dadosTempoViewModel.DadosCurrent().getPorSol()
+            currentCityTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getNomeCidade()
         }
 
         val passarRc = infosRcyVwHome
