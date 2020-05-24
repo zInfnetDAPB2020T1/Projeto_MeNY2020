@@ -37,6 +37,7 @@
             android:layout_width="106.5dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
+            android:alpha="0.9"
             android:text="Rio de Janeiro"
             android:textColor="#E6FFFFFF"
             android:textSize="12sp"
@@ -96,23 +97,23 @@
             app:layout_constraintEnd_toStartOf="@+id/divider2"
             app:layout_constraintStart_toEndOf="@+id/divider"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/suniconff9800" />
+            app:srcCompat="@drawable/icon_recycler_16_ensolarado" />
 
         <TextView
             android:id="@+id/statusProxDias"
             android:layout_width="76dp"
             android:layout_height="30dp"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="1dp"
             android:layout_marginEnd="15dp"
-            android:gravity="center"
+            android:layout_marginBottom="3dp"
+            android:gravity="center|center_horizontal|center_vertical"
             android:text="Parcialmente nublado"
             android:textColor="@color/primaryColor"
             android:textSize="11sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/porcentagemProxDias"
             app:layout_constraintEnd_toStartOf="@+id/divider2"
-            app:layout_constraintStart_toEndOf="@+id/divider"
-            app:layout_constraintTop_toBottomOf="@+id/previsaoStatusIconImgVw" />
+            app:layout_constraintStart_toEndOf="@+id/divider" />
 
         <TextView
             android:id="@+id/porcentagemProxDias"
@@ -145,7 +146,7 @@
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:scrollbarSize="10dp"
-            android:src="@drawable/raindropicon"
+            android:src="@drawable/icon_recycler_16_chance_of_rain"
             app:layout_constraintBottom_toBottomOf="@+id/porcentagemProxDias"
             app:layout_constraintEnd_toEndOf="@+id/porcentagemProxDias"
             app:layout_constraintHorizontal_bias="0.03"

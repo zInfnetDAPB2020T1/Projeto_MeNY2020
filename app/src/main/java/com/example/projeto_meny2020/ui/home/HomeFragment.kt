@@ -79,6 +79,7 @@ class HomeFragment : Fragment() {
             currentSunriseCardVwHome.text = dadosTempoViewModel.DadosCurrent().getNascerSol()
             currentSunsetCardVwHome.text = dadosTempoViewModel.DadosCurrent().getPorSol()
             currentCityTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getNomeCidade()
+            //test.text = dadosTempoViewModel.DadosCurrent().getNuvensPrc()
         }
 
         val passarRc = infosRcyVwHome

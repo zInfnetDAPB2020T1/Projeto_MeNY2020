@@ -86,9 +86,9 @@ class Forecast(
 
     fun getStatus():String{
         if(clouds in 0.0..50.0){
-            return "Ensolarado"
+            return "Céu limpo"
         }else if(clouds in 51.0..70.0){
-            return "Parcialmente Nublado"
+            return "Parcialmente nublado"
         }else {
             return "Nublado"
         }
@@ -96,12 +96,12 @@ class Forecast(
 
     fun getIcone(): Int{
         val string = getStatus()
-        if(string == "Ensolarado"){
-            return R.drawable.suniconff9800
-        }else if(string == "Parcialmente Nublado"){
-            return R.drawable.parcialmentenublado
+        if(string == "Céu limpo"){
+            return R.drawable.icon_recycler_16_ensolarado
+        }else if(string == "Parcialmente nublado"){
+            return R.drawable.icon_recycler_16_parcialmente_nublado
         }else{
-            return R.drawable.nublado
+            return R.drawable.icon_recycler_16_nublado
         }
     }
 
