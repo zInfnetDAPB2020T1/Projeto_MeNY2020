@@ -20,6 +20,7 @@
             android:id="@+id/currentTempTxtVwHome"
             android:layout_width="156dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="30dp"
             android:text="30ºC"
@@ -46,7 +47,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.921" />
+            app:layout_constraintVertical_bias="0.95" />
 
         <com.example.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/currentTempMinTxtVwHome"
@@ -60,7 +61,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.921" />
+            app:layout_constraintVertical_bias="0.95" />
 
         <ImageView
             android:id="@+id/iconImgVwHome"
@@ -78,20 +79,21 @@
             android:id="@+id/imageView4"
             android:layout_width="27dp"
             android:layout_height="27dp"
-            android:layout_marginStart="34dp"
+            android:layout_marginStart="48dp"
             android:src="@drawable/ic_temp_min_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.014"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.921" />
+            app:layout_constraintVertical_bias="0.95" />
 
         <TextView
             android:id="@+id/currentSensacaoTxtVwHome"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="8dp"
             android:alpha="0.7"
             android:gravity="center"
@@ -129,7 +131,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/currentTempMinTxtVwHome"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.921" />
+            app:layout_constraintVertical_bias="0.95" />
 
         <TextView
             android:id="@+id/currentDescriptionTxtVwHome"
@@ -177,6 +179,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
             app:layout_constraintTop_toBottomOf="@+id/currentDescriptionTxtVwHome" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_end="19dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintGuide_end="46dp"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
