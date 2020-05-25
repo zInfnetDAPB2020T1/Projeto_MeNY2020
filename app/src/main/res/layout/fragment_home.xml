@@ -33,10 +33,13 @@
             android:id="@+id/currentTempMaxTxtVwHome"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="188dp"
             android:text="33º"
             android:textColor="#F44336"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
             app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
             app:layout_constraintVertical_bias="0.0" />
@@ -49,6 +52,8 @@
             android:textColor="#2196F3"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
             app:layout_constraintVertical_bias="0.0" />
@@ -69,39 +74,50 @@
             android:id="@+id/imageView4"
             android:layout_width="27dp"
             android:layout_height="27dp"
-            android:layout_marginStart="65dp"
             android:src="@drawable/ic_temp_min_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.14"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
+            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/currentSensacaoTxtVwHome"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="89dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:alpha="0.7"
+            android:gravity="center"
             android:text="SENSAÇÃO TÉRMICA "
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
         <TextView
             android:id="@+id/currentSensacaoDataTxtVwHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
             android:alpha="0.9"
             android:text="32ºC"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/currentSensacaoTxtVwHome"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -109,8 +125,12 @@
             android:layout_height="27dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/ic_max_temp_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.012"
             app:layout_constraintStart_toEndOf="@+id/currentTempMinTxtVwHome"
-            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome" />
+            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/currentDescriptionTxtVwHome"
@@ -131,106 +151,35 @@
             android:id="@+id/imageView6"
             android:layout_width="114dp"
             android:layout_height="1dp"
-            android:layout_marginEnd="54dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
             android:layout_marginBottom="77dp"
             android:alpha="0.9"
             android:foregroundGravity="center"
             android:src="@drawable/linhaseparadora"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome" />
 
         <TextView
             android:id="@+id/currentCityTxtVwHome"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="49dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
             android:alpha="0.9"
+            android:gravity="center"
             android:text="Rio de Janeiro"
             android:textColor="#FFFFFF"
             android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imageView6"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_end="168dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="19dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_end="40dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="183dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintTop_toBottomOf="@+id/currentDescriptionTxtVwHome" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl50vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl125horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.125" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl25horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.25" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl625horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.625" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl75horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_percent="0.75" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl875horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.875" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -333,22 +282,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.0" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_begin="61dp"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="61dp" />
 
     <TextView
         android:id="@+id/dicaDoDiaTxtVwHome"
