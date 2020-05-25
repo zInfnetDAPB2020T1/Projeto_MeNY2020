@@ -20,14 +20,18 @@
             android:id="@+id/currentTempTxtVwHome"
             android:layout_width="156dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="34dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="30dp"
             android:text="30ºC"
             android:textColor="#FFFFFF"
             android:textSize="65sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.133"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentDescriptionTxtVwHome"
+            app:layout_constraintVertical_bias="0.0" />
 
         <com.example.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/currentTempMaxTxtVwHome"
@@ -41,8 +45,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.921" />
 
         <com.example.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/currentTempMinTxtVwHome"
@@ -55,8 +59,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.921" />
 
         <ImageView
             android:id="@+id/iconImgVwHome"
@@ -78,10 +82,10 @@
             android:src="@drawable/ic_temp_min_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.014"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.921" />
 
         <TextView
             android:id="@+id/currentSensacaoTxtVwHome"
@@ -110,10 +114,10 @@
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/currentTempMaxTxtVwHome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
-            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
-            app:layout_constraintTop_toBottomOf="@+id/currentSensacaoTxtVwHome" />
+            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -124,8 +128,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/currentTempMinTxtVwHome"
-            app:layout_constraintTop_toBottomOf="@+id/currentTempTxtVwHome"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.921" />
 
         <TextView
             android:id="@+id/currentDescriptionTxtVwHome"
