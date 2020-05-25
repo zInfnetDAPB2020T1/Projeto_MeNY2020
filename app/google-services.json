@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "243290692483",
+    "firebase_url": "https://tempigo-app.firebaseio.com",
+    "project_id": "tempigo-app",
+    "storage_bucket": "tempigo-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243290692483:android:7b757f4523b92e814e74b6",
+        "android_client_info": {
+          "package_name": "com.example.projeto_meny2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243290692483-ag9olj6np5fat6svfsnjivceadib0poe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL4Ad9rH97a_O9izAIhRdJROKKdrrFtck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243290692483-ag9olj6np5fat6svfsnjivceadib0poe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
