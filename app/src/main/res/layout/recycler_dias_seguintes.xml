@@ -40,7 +40,7 @@
             android:alpha="0.8"
             android:text="Rio de Janeiro"
             android:textColor="#E6FFFFFF"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold|italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -101,15 +101,15 @@
 
         <TextView
             android:id="@+id/statusProxDias"
-            android:layout_width="76dp"
-            android:layout_height="30dp"
+            android:layout_width="91dp"
+            android:layout_height="37dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="3dp"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="Parcialmente nublado"
             android:textColor="@color/primaryColor"
-            android:textSize="11sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/porcentagemProxDias"
             app:layout_constraintEnd_toStartOf="@+id/divider2"
@@ -117,7 +117,7 @@
 
         <TextView
             android:id="@+id/porcentagemProxDias"
-            android:layout_width="47dp"
+            android:layout_width="61dp"
             android:layout_height="17dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
@@ -128,7 +128,7 @@
             android:paddingStart="10dp"
             android:text="100.0"
             android:textColor="#FFFFFF"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/divider2"
