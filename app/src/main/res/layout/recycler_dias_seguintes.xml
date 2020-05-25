@@ -37,7 +37,7 @@
             android:layout_width="106.5dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:alpha="0.9"
+            android:alpha="0.8"
             android:text="Rio de Janeiro"
             android:textColor="#E6FFFFFF"
             android:textSize="12sp"
