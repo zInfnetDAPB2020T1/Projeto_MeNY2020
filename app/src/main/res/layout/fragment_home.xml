@@ -58,6 +58,7 @@
             android:layout_width="82dp"
             android:layout_height="82dp"
             android:layout_marginTop="35dp"
+            android:alpha="0.9"
             android:foregroundGravity="center_vertical|center|center_horizontal"
             android:src="@drawable/suntest"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,14 +78,14 @@
             android:id="@+id/currentSensacaoTxtVwHome"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginTop="5dp"
-            android:alpha="0.6"
+            android:layout_marginEnd="88dp"
+            android:alpha="0.7"
             android:text="SENSAÇÃO TÉRMICA "
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="italic"
-            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
         <TextView
@@ -92,7 +93,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="22dp"
-            android:layout_marginEnd="47dp"
+            android:layout_marginEnd="54dp"
+            android:alpha="0.9"
             android:text="32ºC"
             android:textColor="#FFFFFF"
             android:textSize="14sp"
@@ -116,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="15dp"
-            android:alpha="0.7"
+            android:alpha="0.8"
             android:gravity="center|center_horizontal|center_vertical"
             android:text="Céu limpo"
             android:textColor="#FFFFFF"
@@ -127,10 +129,11 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="120dp"
+            android:layout_width="114dp"
             android:layout_height="1dp"
             android:layout_marginEnd="54dp"
             android:layout_marginBottom="77dp"
+            android:alpha="0.9"
             android:foregroundGravity="center"
             android:src="@drawable/linhaseparadora"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -138,23 +141,24 @@
 
         <TextView
             android:id="@+id/currentCityTxtVwHome"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginEnd="49dp"
             android:layout_marginBottom="1dp"
+            android:alpha="0.9"
             android:text="Rio de Janeiro"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imageView6"
-            app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_end="175dp" />
+            app:layout_constraintGuide_end="168dp" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline8"
@@ -253,6 +257,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
                 android:layout_marginEnd="52dp"
+                android:alpha="0.8"
                 android:text="19:32"
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="14sp"
@@ -266,6 +271,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="53dp"
                 android:layout_marginTop="60dp"
+                android:alpha="0.8"
                 android:text="06:22"
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="14sp"
@@ -279,6 +285,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="6dp"
+                android:alpha="0.8"
                 android:text=" . . ."
                 android:textColor="@color/secondaryTextColor"
                 android:textSize="36sp"
@@ -292,8 +299,10 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="42dp"
-                android:alpha="0.9"
+                android:layout_marginBottom="6dp"
+                android:alpha="0.7"
                 android:src="@drawable/sunrise_icon"
+                app:layout_constraintBottom_toTopOf="@+id/currentSunriseCardVwHome"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -302,8 +311,10 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="42dp"
-                android:alpha="0.9"
+                android:layout_marginBottom="6dp"
+                android:alpha="0.7"
                 android:src="@drawable/sunset_icon"
+                app:layout_constraintBottom_toTopOf="@+id/currentSunsetCardVwHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -344,7 +355,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:alpha="0.9"
+        android:alpha="0.8"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Evite se expor ao sol e se hidrate!"
         android:textColor="#FFFFFF"
