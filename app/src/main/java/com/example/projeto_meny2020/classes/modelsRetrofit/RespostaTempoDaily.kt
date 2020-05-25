@@ -1,6 +1,7 @@
 package com.example.projeto_meny2020.classes.modelsRetrofit
 
 import com.example.projeto_meny2020.R
+import kotlin.math.roundToInt
 
 class RespostaTempoDaily(
     val city_name: String = "STRING CITY_NAME NULL",
@@ -73,15 +74,15 @@ class Forecast(
     }
 
     fun getTemp(): String{
-        return temp.toInt().toString() + "°C"
+        return temp.roundToInt().toString() + "°C"
     }
 
     fun getMin(): String{
-        return min_temp.toInt().toString() + "°C"
+        return min_temp.roundToInt().toString() + "°C"
     }
 
     fun getMax():String{
-        return max_temp.toInt().toString() + "°C"
+        return max_temp.roundToInt().toString() + "°C"
     }
 
     fun getStatus():String{

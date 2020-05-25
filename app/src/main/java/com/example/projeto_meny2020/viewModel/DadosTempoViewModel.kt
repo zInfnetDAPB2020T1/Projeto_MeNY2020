@@ -24,6 +24,7 @@ import java.io.PrintWriter
 import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.roundToInt
 
 
 class DadosTempoViewModel(): ViewModel() {
@@ -312,7 +313,7 @@ class DadosTempoViewModel(): ViewModel() {
     }
 
     inner class DadosCurrent(){
-        fun getTemperatura(): String = dadosCurrent!!.data!![0].temp.toString() ?: "0"
+        fun getTemperatura(): String = dadosCurrent!!.data!![0].temp.roundToInt().toString() + "°C" ?: "0"
 
         fun getDescricao(): String = dadosCurrent!!.data!![0].weather!!.description ?: "0"
 
@@ -328,7 +329,7 @@ class DadosTempoViewModel(): ViewModel() {
 
         fun getVentoVel():String = dadosCurrent!!.data!![0].wind_spd.toString() ?: "0"
 
-        fun getSensacaoTerminca(): String = dadosCurrent!!.data!![0].app_temp.toString() + "°C" ?: "0"
+        fun getSensacaoTerminca(): String = dadosCurrent!!.data!![0].app_temp.roundToInt().toString() + "°C" ?: "0"
 
         fun getNuvensPrc(): String = dadosCurrent!!.data!![0].clouds.toString() ?: "0"
 
@@ -371,8 +372,14 @@ class DadosTempoViewModel(): ViewModel() {
 
         fun getManhaNoite(): String = dadosCurrent!!.data!![0].pod ?: "0"
 
-        fun getTemperaturaMin(): String = (getTemperatura().toFloat() - 2).toString() ?: "0"
+        fun getTemperaturaMin(): String{
+            val temp = getTemperatura().split("°")[0].toInt()
+            return (temp - 2).toString() + "°"
+        }
 
-        fun getTemperaturaMax(): String = (getTemperatura().toFloat() + 3).toString() ?: "0"
+        fun getTemperaturaMax(): String{
+            val temp = getTemperatura().split("°")[0].toInt()
+            return (temp + 3).toString() + "°"
+        }
     }
 }

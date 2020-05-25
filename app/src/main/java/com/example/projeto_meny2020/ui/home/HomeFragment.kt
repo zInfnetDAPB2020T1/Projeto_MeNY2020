@@ -43,6 +43,10 @@ class HomeFragment : Fragment() {
 
         dadosTempoViewModel.currentFragment = this
 
+        currentTempMaxTxtVwHome.setColors(R.color.primaryColor, R.color.colorMax)
+        currentTempMinTxtVwHome.setColors2(R.color.colorMinGradient, R.color.colorMin)
+        currentTempTxtVwHome.setColors3(R.color.primaryColor, R.color.primaryLightColor)
+
         DadosEViews()
     }
 
@@ -67,8 +71,8 @@ class HomeFragment : Fragment() {
 
         val callback: () -> Unit = {
             currentDescriptionTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getDescricao()
+
             currentTempTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperatura()
-            //currentTempTxtVwHome.setColors3(R.color.primaryColor, R.color.primaryLightColor)
 
             currentTempMinTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMin()
 
