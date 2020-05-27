@@ -24,6 +24,7 @@ import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
+import com.example.projeto_meny2020.classes.NossoUsuarioGoogle
 import com.example.projeto_meny2020.textgradient.MyGradientTextView
 import com.example.projeto_meny2020.ui.gallery.GalleryFragment
 import com.example.projeto_meny2020.ui.home.HomeFragment
@@ -31,6 +32,7 @@ import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.google.firebase.auth.FirebaseUser
 import hotchemi.android.rate.AppRate
 import kotlinx.android.synthetic.main.app_bar_principal.*
 import kotlinx.android.synthetic.main.content_principal.*
@@ -70,12 +72,18 @@ class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
+   // private lateinit var usuario : NossoUsuarioGoogle
     //lateinit var gradientTextView : MyGradientTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
+
+      //  usuario = intent.getSerializableExtra("usuario") as NossoUsuarioGoogle
+
+
+
 
 // mudar o intervalo para nao encher o saco do usuario, esses aqui foram apenas para testes!
         AppRate.with(this).setInstallDays(0)
@@ -119,6 +127,10 @@ class PrincipalActivity : AppCompatActivity() {
                        startActivity(Intent(Intent.ACTION_VIEW,
                            Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)))
                    }
+               }
+               R.id.nav_signOut -> {
+                 //  usuario.usuario.signOut()
+                   finish()
                }
                R.id.nav_share -> {
                    val share = Intent(Intent.ACTION_SEND).apply {

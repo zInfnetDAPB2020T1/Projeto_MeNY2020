@@ -16,12 +16,6 @@
     </group>
     <item android:title="Ferramentas">
         <menu>
-
-            <item
-                android:id="@+id/nav_slideshow"
-                android:icon="@drawable/ic_settings_black_24dp"
-                android:title="@string/menu_slideshow" />
-
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share_black_24dp"
@@ -30,6 +24,10 @@
                 android:id="@+id/nav_avaliar"
                 android:icon="@drawable/ic_star_black_24dp"
                 android:title="Avaliar" />
+            <item
+                android:id="@+id/nav_signOut"
+                android:icon="@drawable/ic_home_black_24dp"
+                android:title="Sign Out" />
         </menu>
     </item>
 </menu>

@@ -8,21 +8,82 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
+import com.example.projeto_meny2020.classes.NossoUsuarioGoogle
 import com.example.projeto_meny2020.classes.UsuarioMock
 import com.example.projeto_meny2020.viewModel.UsuarioMockViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login_cadastro.*
+import java.lang.Exception
+
+    val LOGOUT = 600
 
 class loginCadastro : AppCompatActivity() {
 
     lateinit var viewModelMock: UsuarioMockViewModel
+    lateinit var googleSignInClient : GoogleSignInClient
+    private val RC_SIGN_IN = 200
+    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_cadastro)
 
+        auth = FirebaseAuth.getInstance()
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        googleBtnLogin.setOnClickListener {
+            signInGoogle()
+        }
+
         viewModelMock = ViewModelProviders.of(this)[UsuarioMockViewModel::class.java]
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RC_SIGN_IN){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try{
+                val conta = task.getResult(ApiException::class.java)
+                firebaseAuthComGoogle(conta!!)
+            }catch(e: ApiException){
+                Log.e("Erro de API", "Autenticacao com google falhou", e)
+            }
+        }
+    }
+
+    private fun firebaseAuthComGoogle(act: GoogleSignInAccount){
+        Log.d("act.id", act.id.toString())
+        val credencial = GoogleAuthProvider.getCredential(act.idToken, null)
+        auth.signInWithCredential(credencial)
+            .addOnCompleteListener {
+                if(it.isSuccessful){
+                    val user = auth.currentUser
+                    Toast.makeText(this, "Bem - vindo, ${user!!.displayName}", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, PrincipalActivity::class.java)
+                 //   intent.putExtra("usuario", NossoUsuarioGoogle(googleSignInClient))
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this,"ocorreu um erro com a conexao", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun signInGoogle() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
     //
     // AREA DE LOGIN
     //

@@ -181,7 +181,6 @@
         android:drawableStart="@drawable/google_logo"
         android:drawableLeft="@drawable/google_logo"
         android:hint="@string/google_btn_login"
-        android:onClick="btnDummyLogin"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:textColorHint="@color/primaryTextColor"

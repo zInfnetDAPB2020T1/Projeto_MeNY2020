@@ -68,5 +68,7 @@
     <string name="login_tt">Login com Twitter</string>
     <string name="login_tel">Login com Telefone</string>
 
+    <string name="default_client_id">243290692483-ag9olj6np5fat6svfsnjivceadib0poe.apps.googleusercontent.com</string>
+
 </resources>
 
