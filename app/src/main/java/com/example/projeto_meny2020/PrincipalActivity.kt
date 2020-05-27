@@ -102,11 +102,28 @@ class PrincipalActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_avaliar
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
+
+        navView.setNavigationItemSelectedListener{
+           when(it.itemId){
+               R.id.nav_avaliar -> {
+                   Toast.makeText(this, "TESTE FOI", Toast.LENGTH_SHORT).show()
+               }
+               R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow ->{
+                   navController.navigate(it.itemId)
+                   drawerLayout.closeDrawers()
+               }
+           }
+
+
+            return@setNavigationItemSelectedListener true
+        }
+
 
         //adiciona o ad
         MobileAds.initialize(this)
