@@ -118,14 +118,22 @@ class PrincipalActivity : AppCompatActivity() {
                    }catch (e: ActivityNotFoundException){
                        startActivity(Intent(Intent.ACTION_VIEW,
                            Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)))
-                   }               }
+                   }
+               }
+               R.id.nav_share -> {
+                   val share = Intent(Intent.ACTION_SEND).apply {
+                       type = "text/plain"
+                       putExtra(Intent.EXTRA_TEXT, "Estou usando o Tempigo, o seu amigo para ver o tempo! Baixa aí, também")
+                   }
+                   if (share.resolveActivity(packageManager) != null){
+                       startActivity(share)
+                   }
+               }
                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow ->{
                    navController.navigate(it.itemId)
                    drawerLayout.closeDrawers()
                }
            }
-
-
             return@setNavigationItemSelectedListener true
         }
 
