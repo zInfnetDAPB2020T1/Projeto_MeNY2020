@@ -112,8 +112,13 @@ class PrincipalActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener{
            when(it.itemId){
                R.id.nav_avaliar -> {
-                   Toast.makeText(this, "TESTE FOI", Toast.LENGTH_SHORT).show()
-               }
+                   try{
+                       startActivity(Intent(Intent.ACTION_VIEW,
+                           Uri.parse("market://details?id=" + "com.android.chrome")))
+                   }catch (e: ActivityNotFoundException){
+                       startActivity(Intent(Intent.ACTION_VIEW,
+                           Uri.parse("http://play.google.com/store/apps/details?id=" + packageName)))
+                   }               }
                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow ->{
                    navController.navigate(it.itemId)
                    drawerLayout.closeDrawers()
