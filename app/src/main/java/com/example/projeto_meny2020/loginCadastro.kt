@@ -36,6 +36,8 @@ class loginCadastro : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        //auth.signOut()
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_client_id))
             .requestEmail()
@@ -66,13 +68,13 @@ class loginCadastro : AppCompatActivity() {
     private fun firebaseAuthComGoogle(act: GoogleSignInAccount){
         Log.d("act.id", act.id.toString())
         val credencial = GoogleAuthProvider.getCredential(act.idToken, null)
+        googleSignInClient.signOut()
         auth.signInWithCredential(credencial)
             .addOnCompleteListener {
                 if(it.isSuccessful){
                     val user = auth.currentUser
                     Toast.makeText(this, "Bem - vindo, ${user!!.displayName}", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, PrincipalActivity::class.java)
-                 //   intent.putExtra("usuario", NossoUsuarioGoogle(googleSignInClient))
                     startActivity(intent)
                 }else{
                     Toast.makeText(this,"ocorreu um erro com a conexao", Toast.LENGTH_SHORT).show()

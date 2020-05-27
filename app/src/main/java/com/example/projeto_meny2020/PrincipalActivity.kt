@@ -32,6 +32,7 @@ import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import hotchemi.android.rate.AppRate
 import kotlinx.android.synthetic.main.app_bar_principal.*
@@ -72,7 +73,7 @@ class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
-   // private lateinit var usuario : NossoUsuarioGoogle
+    private lateinit var usuario : FirebaseAuth
     //lateinit var gradientTextView : MyGradientTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +81,8 @@ class PrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
 
-      //  usuario = intent.getSerializableExtra("usuario") as NossoUsuarioGoogle
+        usuario = FirebaseAuth.getInstance()
+            //intent.getSerializableExtra("usuario") as NossoUsuarioGoogle
 
 
 
@@ -129,7 +131,7 @@ class PrincipalActivity : AppCompatActivity() {
                    }
                }
                R.id.nav_signOut -> {
-                 //  usuario.usuario.signOut()
+                   usuario.signOut()
                    finish()
                }
                R.id.nav_share -> {
