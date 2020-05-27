@@ -28,15 +28,11 @@ class loginCadastro : AppCompatActivity() {
     lateinit var viewModelMock: UsuarioMockViewModel
     lateinit var googleSignInClient : GoogleSignInClient
     private val RC_SIGN_IN = 200
-    private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_cadastro)
 
-        auth = FirebaseAuth.getInstance()
-
-        //auth.signOut()
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_client_id))
@@ -44,6 +40,8 @@ class loginCadastro : AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+
 
         googleBtnLogin.setOnClickListener {
             signInGoogle()
@@ -54,35 +52,22 @@ class loginCadastro : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN){
+        if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try{
+            try {
                 val conta = task.getResult(ApiException::class.java)
-                firebaseAuthComGoogle(conta!!)
-            }catch(e: ApiException){
+                Toast.makeText(this, "Bem - vindo, ${conta!!.displayName}", Toast.LENGTH_SHORT)
+                    .show()
+                val intent = Intent(this, PrincipalActivity::class.java)
+                startActivity(intent)
+            } catch (e: ApiException) {
                 Log.e("Erro de API", "Autenticacao com google falhou", e)
             }
         }
     }
 
-    private fun firebaseAuthComGoogle(act: GoogleSignInAccount){
-        Log.d("act.id", act.id.toString())
-        val credencial = GoogleAuthProvider.getCredential(act.idToken, null)
-        googleSignInClient.signOut()
-        auth.signInWithCredential(credencial)
-            .addOnCompleteListener {
-                if(it.isSuccessful){
-                    val user = auth.currentUser
-                    Toast.makeText(this, "Bem - vindo, ${user!!.displayName}", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, PrincipalActivity::class.java)
-                    startActivity(intent)
-                }else{
-                    Toast.makeText(this,"ocorreu um erro com a conexao", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
     private fun signInGoogle() {
+
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }

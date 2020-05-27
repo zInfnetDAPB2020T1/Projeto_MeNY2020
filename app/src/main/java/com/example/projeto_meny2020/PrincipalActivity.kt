@@ -32,6 +32,9 @@ import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import hotchemi.android.rate.AppRate
@@ -73,18 +76,11 @@ class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
-    private lateinit var usuario : FirebaseAuth
-    //lateinit var gradientTextView : MyGradientTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
-
-        usuario = FirebaseAuth.getInstance()
-            //intent.getSerializableExtra("usuario") as NossoUsuarioGoogle
-
-
 
 
 // mudar o intervalo para nao encher o saco do usuario, esses aqui foram apenas para testes!
@@ -100,11 +96,6 @@ class PrincipalActivity : AppCompatActivity() {
         dadosTempoViewModel = ViewModelProviders.of(this)[DadosTempoViewModel::class.java]
 
         dadosTempoViewModel.fileDir = filesDir.toString()
-//        val fab: FloatingActionButton = findViewById(R.id.fab)
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -131,7 +122,13 @@ class PrincipalActivity : AppCompatActivity() {
                    }
                }
                R.id.nav_signOut -> {
-                   usuario.signOut()
+                   val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                       .requestIdToken(getString(R.string.default_client_id))
+                       .requestEmail()
+                       .build()
+
+                   val googleSignInClient = GoogleSignIn.getClient(this, gso)
+                   googleSignInClient.signOut()
                    finish()
                }
                R.id.nav_share -> {
@@ -162,6 +159,11 @@ class PrincipalActivity : AppCompatActivity() {
 //        var gradient_max = gradientTextView.setColors(R.color.primaryColor, R.color.colorMax)
 //        var gradient_min = gradientTextView.setColors2(R.color.colorMinGradient, R.color.colorMin)
 //        //não sei colocar para o text view, n sei se é aqui ou dentro do adapter do recycle
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        usuario.usuario.signOut()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
