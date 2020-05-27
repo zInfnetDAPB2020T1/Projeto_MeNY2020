@@ -14,6 +14,7 @@ class InfosTempoAdapter(val infosLista : List<recycleInfosModel>): RecyclerView.
         val campoNome =view.typeMetVariable
         val campoInfo = view.dataMetVariable
         val campoIcone = view.iconMetVariable
+        val campoUnidade = view.unitMetVariable
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InfosViewHolder {
@@ -39,5 +40,6 @@ class InfosTempoAdapter(val infosLista : List<recycleInfosModel>): RecyclerView.
         holder.campoNome.text = infoAtual.nome
         holder.campoIcone.setImageResource(infoAtual.icone)
         holder.campoInfo.text = infoAtual.info
+        holder.campoUnidade.text = infoAtual.unit
     }
 }

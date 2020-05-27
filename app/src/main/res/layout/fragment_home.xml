@@ -305,7 +305,7 @@
         android:id="@+id/dicaDoDiaTxtVwHome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="25dp"
         android:alpha="0.8"
         android:gravity="center|center_horizontal|center_vertical"
         android:text="Evite se expor ao sol e se hidrate!"

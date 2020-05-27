@@ -22,14 +22,15 @@
                 android:id="@+id/iconMetVariable"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginBottom="11dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="20dp"
                 android:alpha="0.7"
                 app:layout_constraintBottom_toTopOf="@+id/dataMetVariable"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/typeMetVariable"
+                app:layout_constraintTop_toTopOf="@+id/glhorizontal50"
+                app:layout_constraintVertical_bias="0.629"
                 app:srcCompat="@drawable/icon_recycler_wind_dir" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -76,7 +77,24 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/unitMetVariable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="5dp"
+                android:alpha="0.6"
+                android:text="hPa"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/iconMetVariable"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/typeMetVariable" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
