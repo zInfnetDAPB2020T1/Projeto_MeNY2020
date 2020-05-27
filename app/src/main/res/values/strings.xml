@@ -27,6 +27,12 @@
     <string name="menu_gallery">Previsão para 16 dias</string>
     <string name="menu_slideshow">Configurações</string>
 
+    <string name="rate_dialog_title">Avalie esse app</string>
+    <string name="rate_dialog_message">Gostou do app? Por favor, poderia nos avaliar? Não demora mais de um minuto! Sua opinião é muito importante para nós!</string>
+    <string name="rate_dialog_ok">Avalie agora</string>
+    <string name="rate_dialog_cancel">Lembre-me depois</string>
+    <string name="rate_dialog_no">Não, obrigada</string>
+
     <string name="home_second">Home Second</string>
     <string name="mudar_cidade">Alterar cidade</string>
 
@@ -59,6 +65,8 @@
     <string name="saopaulo">São Paulo</string>
     <string name="teresina">Teresina</string>
     <string name="vitoria">Vitória</string>
+    <string name="login_tt">Login com Twitter</string>
+    <string name="login_tel">Login com Telefone</string>
 
 </resources>
 

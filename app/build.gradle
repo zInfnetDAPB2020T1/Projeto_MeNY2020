@@ -60,6 +60,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
     implementation 'com.google.android.gms:play-services-ads:19.1.0'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.hotchemi:android-rate:1.0.1'
+
 
 
 }

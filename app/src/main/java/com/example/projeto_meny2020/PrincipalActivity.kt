@@ -1,9 +1,13 @@
 package com.example.projeto_meny2020
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -27,6 +31,7 @@ import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import hotchemi.android.rate.AppRate
 import kotlinx.android.synthetic.main.app_bar_principal.*
 import kotlinx.android.synthetic.main.content_principal.*
 import kotlinx.android.synthetic.main.recycler_dias_seguintes.*
@@ -72,6 +77,12 @@ class PrincipalActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_principal)
 
+// mudar o intervalo para nao encher o saco do usuario, esses aqui foram apenas para testes!
+        AppRate.with(this).setInstallDays(0)
+            .setLaunchTimes(0)
+            .setRemindInterval(1)
+            .monitor()
+        AppRate.showRateDialogIfMeetsConditions(this)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -91,12 +102,13 @@ class PrincipalActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_avaliar
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        //adiciona o ad
         MobileAds.initialize(this)
         val header = navView.getHeaderView(0)
         val adview = header.findViewById(R.id.adView) as AdView
@@ -109,13 +121,14 @@ class PrincipalActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.principal,menu)
+        menuInflater.inflate(R.menu.principal, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
-        when (item.itemId){
+        //menu lateral para mudar as cidades
+        when (item.itemId) {
             R.id.aracaju, R.id.belem, R.id.belohorizonte, R.id.boavista,
             R.id.brasilia, R.id.campogrande, R.id.cuiaba, R.id.curitiba,
             R.id.florianopolis, R.id.fortaleza, R.id.goiania, R.id.joaopessoa,
@@ -129,13 +142,13 @@ class PrincipalActivity : AppCompatActivity() {
                 dadosTempoViewModel.lat = latLonList[item.itemId]!![0]
                 dadosTempoViewModel.lon = latLonList[item.itemId]!![1]
 
-                if(dadosTempoViewModel.currentFragment is GalleryFragment){
+                if (dadosTempoViewModel.currentFragment is GalleryFragment) {
                     val fAtual = dadosTempoViewModel.currentFragment as GalleryFragment
                     fAtual.DadosEViews2()
-                }else if(dadosTempoViewModel.currentFragment is HomeFragment){
+                } else if (dadosTempoViewModel.currentFragment is HomeFragment) {
                     val fAtual = dadosTempoViewModel.currentFragment as HomeFragment
                     fAtual.DadosEViews()
-                }else{
+                } else {
                     Log.e("Mudar lat/lon", "ocorreu algum erro ao pegar os fragments")
                 }
                 return false
@@ -147,12 +160,10 @@ class PrincipalActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-
-
-
 }
+
+

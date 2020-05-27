@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayoutBgLogin"
+        android:layout_width="0dp"
+        android:layout_height="254dp"
+        android:background="@drawable/bg1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="221dp"
+            android:src="@drawable/nomecomslogan2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.009" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/facebookBtnLogin2"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="92dp"
+        android:background="@drawable/fb_btn"
+        android:drawableStart="@drawable/fb_logo"
+        android:drawableLeft="@drawable/fb_logo"
+        android:hint="@string/fb_btn_login"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="#fff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImgVwLogin" />
+
+    <Button
+        android:id="@+id/googleBtnLogin2"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="292dp"
+        android:background="@drawable/google_btn"
+        android:drawableStart="@drawable/google_logo"
+        android:drawableLeft="@drawable/google_logo"
+        android:hint="@string/google_btn_login"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="@color/primaryTextColor"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/facebookBtnLogin"
+        app:layout_constraintVertical_bias="0.29000002" />
+
+    <Button
+        android:id="@+id/twitterBtnLogin2"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="168dp"
+        android:background="@drawable/tt_btn"
+        android:drawableStart="@drawable/twitter_logo"
+        android:drawableLeft="@drawable/twitter_logo"
+        android:hint="@string/login_tt"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="#fff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImgVwLogin" />
+
+    <Button
+        android:id="@+id/phoneLogin"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/tel_btn"
+        android:drawableStart="@drawable/ic_call_black_24dp"
+        android:drawableLeft="@drawable/ic_call_black_24dp"
+        android:hint="Login com Telefone"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColorHint="#fff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImgVwLogin" />
+
+    <ImageView
+        android:id="@+id/logoImgVwLogin"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/icone_sol_transition_2"
+        android:importantForAccessibility="no"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ConstraintLayoutBgLogin" />
+</androidx.constraintlayout.widget.ConstraintLayout>
