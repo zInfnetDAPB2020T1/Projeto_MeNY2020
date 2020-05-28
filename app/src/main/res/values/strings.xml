@@ -70,5 +70,9 @@
 
     <string name="default_client_id">243290692483-ag9olj6np5fat6svfsnjivceadib0poe.apps.googleusercontent.com</string>
 
+    <string name="facebook_app_id">533729540641325</string>
+    <string name="fb_login_protocol_scheme">fb533729540641325</string>
+
+
 </resources>
 
