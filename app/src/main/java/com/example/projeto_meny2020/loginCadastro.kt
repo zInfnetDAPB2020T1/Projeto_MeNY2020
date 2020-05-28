@@ -19,10 +19,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FacebookAuthProvider
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.activity_login_cadastro.*
 import java.lang.Exception
 
@@ -31,6 +28,7 @@ class loginCadastro : AppCompatActivity() {
 //    lateinit var viewModelMock: UsuarioMockViewModel
     lateinit var googleSignInClient : GoogleSignInClient
     lateinit var callbackManager: CallbackManager
+//    private lateinit var provider: OAuthProvider.Builder
     private val GG_SIGN_IN = 6489
 //    private val FC_SIGN_IN = 22
 //    private val TW_SIGN_IN = 54
@@ -59,9 +57,16 @@ class loginCadastro : AppCompatActivity() {
         }
 
         //
+        //Login Twitter
+        //
+        twitterBtnLogin2.setOnClickListener {
+            signInTwitter()
+        }
+
+        //
         //Area de login do facebook
         //
-        callbackManager = CallbackManager.Factory.create();
+        callbackManager = CallbackManager.Factory.create()
         facebookBtnLogin2.setReadPermissions("email")
         // Callback registration
         facebookBtnLogin2.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
@@ -73,14 +78,16 @@ class loginCadastro : AppCompatActivity() {
 
             override fun onCancel() {
                 // App code
+                LoginManager.getInstance().logOut()
                 Log.d("Facebook foi cancelado", "Alguem cancelou o facebook")
             }
 
             override fun onError(exception: FacebookException) {
                 // App code
+                LoginManager.getInstance().logOut()
                 Log.e("Error FB Exception", exception.message!!)
             }
-        });
+        })
 
         //
         //Login do google
@@ -167,6 +174,26 @@ class loginCadastro : AppCompatActivity() {
     private fun signInGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, GG_SIGN_IN)
+    }
+
+    private fun signInTwitter(){
+        val provider = OAuthProvider.newBuilder("twitter.com")
+        provider.addCustomParameter("lang", "pt")
+
+        auth
+            .startActivityForSignInWithProvider(this, provider.build())
+            .addOnSuccessListener {
+                Toast.makeText(
+                    this,
+                    "Bem - vindo, ${auth.currentUser!!.displayName}",
+                    Toast.LENGTH_SHORT
+                )
+                    .show()
+
+                val intent = Intent(this, PrincipalActivity::class.java)
+                startActivity(intent)
+            }
+
     }
     //
     // AREA DE LOGIN
