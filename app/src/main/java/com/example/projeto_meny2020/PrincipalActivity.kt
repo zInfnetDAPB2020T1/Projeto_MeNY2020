@@ -76,6 +76,7 @@ class PrincipalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var dadosTempoViewModel: DadosTempoViewModel
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -92,6 +93,8 @@ class PrincipalActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        auth = FirebaseAuth.getInstance()
 
         dadosTempoViewModel = ViewModelProviders.of(this)[DadosTempoViewModel::class.java]
 
@@ -122,13 +125,8 @@ class PrincipalActivity : AppCompatActivity() {
                    }
                }
                R.id.nav_signOut -> {
-                   val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                       .requestIdToken(getString(R.string.default_client_id))
-                       .requestEmail()
-                       .build()
-
-                   val googleSignInClient = GoogleSignIn.getClient(this, gso)
-                   googleSignInClient.signOut()
+                   Log.d("AQUI LE ISSO PLZ", auth.currentUser!!.displayName!!)
+                   auth.signOut()
                    finish()
                }
                R.id.nav_share -> {
@@ -159,11 +157,6 @@ class PrincipalActivity : AppCompatActivity() {
 //        var gradient_max = gradientTextView.setColors(R.color.primaryColor, R.color.colorMax)
 //        var gradient_min = gradientTextView.setColors2(R.color.colorMinGradient, R.color.colorMin)
 //        //não sei colocar para o text view, n sei se é aqui ou dentro do adapter do recycle
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-//        usuario.usuario.signOut()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
