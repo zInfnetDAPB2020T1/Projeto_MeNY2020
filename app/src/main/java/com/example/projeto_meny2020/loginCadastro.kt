@@ -73,11 +73,13 @@ class loginCadastro : AppCompatActivity() {
 
             override fun onCancel() {
                 // App code
+                LoginManager.getInstance().logOut()
                 Log.d("Facebook foi cancelado", "Alguem cancelou o facebook")
             }
 
             override fun onError(exception: FacebookException) {
                 // App code
+                LoginManager.getInstance().logOut()
                 Log.e("Error FB Exception", exception.message!!)
             }
         });
