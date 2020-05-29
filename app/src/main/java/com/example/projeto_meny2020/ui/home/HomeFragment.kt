@@ -85,9 +85,11 @@ class HomeFragment : Fragment() {
 
             currentTempTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperatura()
 
-            currentTempMinTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMin()
+//            currentTempMinTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMin()
+//
+//            currentTempMaxTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMax()
 
-            currentTempMaxTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getTemperaturaMax()
+            dicaDoDiaTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getDicaDoDia()
 
             currentSensacaoDataTxtVwHome.text =
                 dadosTempoViewModel.DadosCurrent().getSensacaoTerminca()

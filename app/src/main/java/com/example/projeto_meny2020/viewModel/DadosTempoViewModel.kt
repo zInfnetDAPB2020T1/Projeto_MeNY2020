@@ -411,5 +411,30 @@ class DadosTempoViewModel(): ViewModel() {
             val temp = getTemperatura().split("°")[0].toInt()
             return (temp + 3).toString() + "°"
         }
+
+        fun getDicaDoDia(): String{
+            val desc = getDescricao()
+
+            val tempoSunset = getPorSol()
+            val tempoSplitado = tempoSunset.split(":")
+            val dateFormatado = SimpleDateFormat("HH").format(Date())
+            if(tempoSplitado[0].toInt() <= dateFormatado.toInt() && desc == "Céu limpo")
+                return "A noite esta limpa, aproveite para tomar um vinho."
+            return when (desc){
+                "Céu limpo" -> "O dia está belo, abra a janela!"
+
+                "Poucas nuvens" -> "Não se esqueça, o tempo, ás vezes, é seu amigo."
+                "Parcialmente nublado" -> "Mesmo o sol não estando à vista, ele ainda queima."
+                "Nuvens dispersas" -> "Já olhou para o céu e viu o formato das nuvens?"
+                "Nublado" -> "Por mais que esteja nublado, tente não ficar na cama."
+                "Chuva fraca" -> "A chuva está fraca, a vontade de sair de casa também."
+                "Chuva moderada" -> "Beijos na chuva não são tão románticos assim."
+
+                "Chuva forte" -> "Não esqueça o guarda-chuva e, se possivel, fique em casa."
+                "Chuva intensa" -> "Não esqueça o guarda-chuva e, se possivel, fique em casa."
+
+                else -> "Acho que não temos nenhuma dica no momento."
+            }
+        }
     }
 }
