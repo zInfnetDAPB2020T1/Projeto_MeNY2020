@@ -55,7 +55,16 @@ class loginCadastro : AppCompatActivity() {
             val intent = Intent(this, PrincipalActivity::class.java)
             startActivity(intent)
         }
-
+        //
+        //Login Telefone
+        //
+        phoneLogin2.setOnClickListener{
+            Toast.makeText(
+                this,
+                "Essa função ainda não foi implementada, desculpe!",
+                Toast.LENGTH_SHORT)
+                .show()
+        }
         //
         //Login Twitter
         //
