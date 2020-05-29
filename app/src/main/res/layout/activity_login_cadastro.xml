@@ -35,14 +35,12 @@
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/facebookBtnLogin2"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="278dp"
+        android:layout_height="53dp"
         android:background="@drawable/fb_btn"
         android:drawableStart="@drawable/fb_logo"
         android:drawableLeft="@drawable/fb_logo"
         android:hint="@string/fb_btn_login"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
         android:textColorHint="#fff"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/twitterBtnLogin2"

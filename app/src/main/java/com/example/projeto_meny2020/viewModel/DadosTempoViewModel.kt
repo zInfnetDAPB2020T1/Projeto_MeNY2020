@@ -317,6 +317,25 @@ class DadosTempoViewModel(): ViewModel() {
 
         fun getDescricao(): String = dadosCurrent!!.data!![0].weather!!.description ?: "0"
 
+        fun getIconeTemp(): Int{
+            val descri = getDescricao()
+            return when (descri){
+                "Céu limpo" -> R.drawable.suntest
+
+                "Poucas nuvens" -> R.drawable.icone_current_poucas_nuvens
+                "Parcialmente nublado" -> R.drawable.icone_current_parcialmente_nublado
+                "Nuvens dispersas" -> R.drawable.icone_current_nuvens_dispersas
+                "Nublado" -> R.drawable.icone_current_nublado
+                "Chuva fraca" -> R.drawable.icone_current_chuva_fraca
+                "Chuva moderada" -> R.drawable.icone_current_chuva_moderada
+
+                "Chuva forte" -> R.drawable.icone_current_chuva_forte
+                "Chuva intensa" -> R.drawable.icone_current_chuva_forte
+
+                else -> R.drawable.icone_current_else_tampao
+            }
+        }
+
         fun getNomeCidade(): String = dadosCurrent!!.data!![0].city_name ?: "0"
 
         fun getVisibilidade(): String = dadosCurrent!!.data!![0].vis.toString() ?: "0"

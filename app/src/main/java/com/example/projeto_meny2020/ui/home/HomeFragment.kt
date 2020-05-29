@@ -83,6 +83,8 @@ class HomeFragment : Fragment() {
             currentSunriseCardVwHome.text = dadosTempoViewModel.DadosCurrent().getNascerSol()
             currentSunsetCardVwHome.text = dadosTempoViewModel.DadosCurrent().getPorSol()
             currentCityTxtVwHome.text = dadosTempoViewModel.DadosCurrent().getNomeCidade()
+
+            iconImgVwHome.setImageResource(dadosTempoViewModel.DadosCurrent().getIconeTemp())
             //test.text = dadosTempoViewModel.DadosCurrent().getNuvensPrc()
         }
 
