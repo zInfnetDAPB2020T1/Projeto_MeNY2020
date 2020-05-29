@@ -9,11 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projeto_meny2020.R
 import com.example.projeto_meny2020.adapter.InfosTempoAdapter
+import com.example.projeto_meny2020.classes.modelsRetrofit.RespostaTempoDaily
 import com.example.projeto_meny2020.classes.recycleInfosModel
 import com.example.projeto_meny2020.viewModel.DadosTempoViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -34,6 +36,15 @@ class HomeFragment : Fragment() {
         activity?.let {
             dadosTempoViewModel = ViewModelProviders.of(it).get(DadosTempoViewModel::class.java)
         }
+        if (dadosTempoViewModel.dadosLiveDataDaily.hasObservers()) {
+            dadosTempoViewModel.dadosLiveDataDaily.removeObservers(viewLifecycleOwner)
+        }
+        val observer = Observer<RespostaTempoDaily> {
+            currentTempMinTxtVwHome.text = it.data!![0].getMin().removeSuffix("C")
+            currentTempMaxTxtVwHome.text = it.data!![0].getMax().removeSuffix("C")
+        }
+        dadosTempoViewModel.dadosLiveDataDaily.observe(viewLifecycleOwner, observer)
+
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         return root
     }

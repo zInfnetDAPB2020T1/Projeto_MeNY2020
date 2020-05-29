@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +31,11 @@ import kotlin.math.roundToInt
 class DadosTempoViewModel(): ViewModel() {
     var dadosCurrent: RespostaTempoCurrent? = null
     var dadosDaily: RespostaTempoDaily? = null
+        set(value){
+            field = value
+            dadosLiveDataDaily.value = value
+        }
+    var dadosLiveDataDaily = MutableLiveData<RespostaTempoDaily>()
     var lat = "-22.875113"
         set(value) {
             jaDeuGet = false
@@ -319,6 +325,11 @@ class DadosTempoViewModel(): ViewModel() {
 
         fun getIconeTemp(): Int{
             val descri = getDescricao()
+            val tempoSunset = getPorSol()
+            val tempoSplitado = tempoSunset.split(":")
+            val dateFormatado = SimpleDateFormat("HH").format(Date())
+            if(tempoSplitado[0].toInt() <= dateFormatado.toInt() && descri == "Céu limpo")
+                return R.drawable.icone_current_ceu_limpo_noite
             return when (descri){
                 "Céu limpo" -> R.drawable.suntest
 
