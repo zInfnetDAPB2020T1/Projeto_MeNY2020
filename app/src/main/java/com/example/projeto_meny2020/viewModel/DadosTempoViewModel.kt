@@ -326,12 +326,14 @@ class DadosTempoViewModel(): ViewModel() {
         fun getIconeTemp(): Int{
             val descri = getDescricao()
             val tempoSunset = getPorSol()
-            val tempoSplitado = tempoSunset.split(":")
+            val tempoSunrise = getNascerSol()
+            val tempoSunsetSplitado = tempoSunset.split(":")
+            val tempoSunriseSplitado = tempoSunrise.split(":")
             val dateFormatado = SimpleDateFormat("HH").format(Date())
-            if(tempoSplitado[0].toInt() <= dateFormatado.toInt() && descri == "Céu limpo")
-                return R.drawable.icone_current_ceu_limpo_noite
+            if(tempoSunsetSplitado[0].toInt() >= dateFormatado.toInt() && tempoSunriseSplitado[0].toInt() <= dateFormatado.toInt() && descri == "Céu limpo")
+                return R.drawable.suntest
             return when (descri){
-                "Céu limpo" -> R.drawable.suntest
+                "Céu limpo" ->  R.drawable.icone_current_ceu_limpo_noite
 
                 "Poucas nuvens" -> R.drawable.icone_current_poucas_nuvens
                 "Parcialmente nublado" -> R.drawable.icone_current_parcialmente_nublado
@@ -415,16 +417,11 @@ class DadosTempoViewModel(): ViewModel() {
         fun getDicaDoDia(): String{
             val desc = getDescricao()
 
-            val tempoSunset = getPorSol()
-            val tempoSplitado = tempoSunset.split(":")
-            val dateFormatado = SimpleDateFormat("HH").format(Date())
-            if(tempoSplitado[0].toInt() <= dateFormatado.toInt() && desc == "Céu limpo")
-                return "A noite esta limpa, aproveite para tomar um vinho."
             return when (desc){
-                "Céu limpo" -> "O dia está belo, abra a janela!"
+                "Céu limpo" -> "Lá fora está belo, abra a janela!"
 
-                "Poucas nuvens" -> "Não se esqueça, o tempo, ás vezes, é seu amigo."
-                "Parcialmente nublado" -> "Mesmo o sol não estando à vista, ele ainda queima."
+                "Poucas nuvens" -> "Não se esqueça, o tempo, às vezes, é seu amigo."
+                "Parcialmente nublado" -> "Nuvens espessas e acumuladas ventanias certas e continuadas."
                 "Nuvens dispersas" -> "Já olhou para o céu e viu o formato das nuvens?"
                 "Nublado" -> "Por mais que esteja nublado, tente não ficar na cama."
                 "Chuva fraca" -> "A chuva está fraca, a vontade de sair de casa também."

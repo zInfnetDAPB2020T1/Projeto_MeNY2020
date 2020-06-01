@@ -26,7 +26,7 @@
                 android:title="Avaliar" />
             <item
                 android:id="@+id/nav_signOut"
-                android:icon="@drawable/ic_home_black_24dp"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
                 android:title="Sign Out" />
         </menu>
     </item>
