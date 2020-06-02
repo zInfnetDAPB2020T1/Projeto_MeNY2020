@@ -16,7 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.example.projeto_meny2020.textgradient.MyGradientTextView
+        <com.tempigo.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/currentTempTxtVwHome"
             android:layout_width="156dp"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toBottomOf="@+id/currentDescriptionTxtVwHome"
             app:layout_constraintVertical_bias="0.0" />
 
-        <com.example.projeto_meny2020.textgradient.MyGradientTextView
+        <com.tempigo.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/currentTempMaxTxtVwHome"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.95" />
 
-        <com.example.projeto_meny2020.textgradient.MyGradientTextView
+        <com.tempigo.projeto_meny2020.textgradient.MyGradientTextView
             android:id="@+id/currentTempMinTxtVwHome"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
@@ -103,7 +103,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
-            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+            app:layout_constraintTop_toBottomOf="@+id/currentCityTxtVwHome" />
 
         <TextView
             android:id="@+id/currentSensacaoDataTxtVwHome"
@@ -179,23 +179,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/currentTempTxtVwHome"
             app:layout_constraintTop_toBottomOf="@+id/currentDescriptionTxtVwHome" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintGuide_end="19dp" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintGuide_end="46dp"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

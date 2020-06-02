@@ -15,10 +15,95 @@
       },
       "oauth_client": [
         {
+          "client_id": "243290692483-nr7lpssln75rp61lv8u7ip2ks36iuodj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projeto_meny2020",
+            "certificate_hash": "06650689bebbec0c9e3366fe6b7a23d690793e01"
+          }
+        },
+        {
+          "client_id": "243290692483-j2d2bavq4iee89vjvccomupk0omh4vhm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projeto_meny2020",
+            "certificate_hash": "ebfa2ef63b0f2e18ec0d5ee2a1f246c05472451c"
+          }
+        },
+        {
+          "client_id": "243290692483-69tscr9ltbiiv3a10rj1emtqpbt73h2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projeto_meny2020",
+            "certificate_hash": "3807e66623926321c4c27157b9f9e997e4e92ccd"
+          }
+        },
+        {
           "client_id": "243290692483-13t83ho72lesgup1f6bo1ngefbn8vld5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.projeto_meny2020",
+            "certificate_hash": "2b3821901e13a315accb0c2e4f68e547adb09c3b"
+          }
+        },
+        {
+          "client_id": "243290692483-ag9olj6np5fat6svfsnjivceadib0poe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL4Ad9rH97a_O9izAIhRdJROKKdrrFtck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243290692483-ag9olj6np5fat6svfsnjivceadib0poe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243290692483:android:51b7c6e925e505074e74b6",
+        "android_client_info": {
+          "package_name": "com.tempigo.projeto_meny2020"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243290692483-mdcpc8mkrkdvpm696r755prd1rkbqboe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tempigo.projeto_meny2020",
+            "certificate_hash": "06650689bebbec0c9e3366fe6b7a23d690793e01"
+          }
+        },
+        {
+          "client_id": "243290692483-pa69crc8k20qj0o8mfrb3b512behi3k3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tempigo.projeto_meny2020",
+            "certificate_hash": "ebfa2ef63b0f2e18ec0d5ee2a1f246c05472451c"
+          }
+        },
+        {
+          "client_id": "243290692483-9gvc190oi5smfqt7kfbva2oad60ceeu5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tempigo.projeto_meny2020",
+            "certificate_hash": "3807e66623926321c4c27157b9f9e997e4e92ccd"
+          }
+        },
+        {
+          "client_id": "243290692483-vd5u6v4ggau1b3fg9ihudhjrph5u4g3v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tempigo.projeto_meny2020",
             "certificate_hash": "2b3821901e13a315accb0c2e4f68e547adb09c3b"
           }
         },
